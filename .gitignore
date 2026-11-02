@@ -1,0 +1,23 @@
+# Downloaded and prepared datasets
+/raw/
+/data/
+
+# Model outputs
+/checkpoints/
+/models/
+/runs/
+*.log
+
+# Local Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.uv-cache/
+
+# Local settings and credentials
+.env
+.env.*
+.DS_Store
+Thumbs.db

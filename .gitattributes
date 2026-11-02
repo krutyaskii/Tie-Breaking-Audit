@@ -1,0 +1,2 @@
+# Keep the reference manifest and source files stable across Windows and Unix.
+* text=auto eol=lf

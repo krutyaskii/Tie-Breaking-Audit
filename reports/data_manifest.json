@@ -1,0 +1,92 @@
+{
+  "dataset": "FB15k-237",
+  "source_repository": "https://github.com/svjan5/kg-reeval",
+  "source_commit": "999b75e8a3ffa81973ea33bb22de17511b136bd1",
+  "source_url": "https://raw.githubusercontent.com/svjan5/kg-reeval/999b75e8a3ffa81973ea33bb22de17511b136bd1/data_compressed/FB15k-237.zip",
+  "source_archive_sha256": "f8e19f3b4b24605c682e1982dcf37769d641ebac0e8a9f79d769867486ec752c",
+  "entities": 14541,
+  "relations": 237,
+  "splits": {
+    "train": {
+      "triples": 272115,
+      "unique_triples": 272115,
+      "duplicate_rows": 0,
+      "entities_present": 14505,
+      "relations_present": 237
+    },
+    "valid": {
+      "triples": 17535,
+      "unique_triples": 17535,
+      "duplicate_rows": 0,
+      "entities_present": 9809,
+      "relations_present": 223
+    },
+    "test": {
+      "triples": 20466,
+      "unique_triples": 20466,
+      "duplicate_rows": 0,
+      "entities_present": 10348,
+      "relations_present": 224
+    }
+  },
+  "exact_triple_overlap": {
+    "train_valid": 0,
+    "train_test": 0,
+    "valid_test": 0
+  },
+  "train_coverage": {
+    "valid": {
+      "entities_absent_from_train": 8,
+      "relations_absent_from_train": 0
+    },
+    "test": {
+      "entities_absent_from_train": 29,
+      "relations_absent_from_train": 0
+    }
+  },
+  "files": {
+    "train.txt": {
+      "sha256": "6e4c2782169af21e9743f3b1d200886f5d595bf6bc504ec1351720949c5cdfae",
+      "bytes": 21277292
+    },
+    "valid.txt": {
+      "sha256": "cf6309010852f6a8d47a45df830a426415d1ee6f7a3970a8376ff1fb81db4a5c",
+      "bytes": 1303101
+    },
+    "test.txt": {
+      "sha256": "5711cf41623ceb4eacc50eb6108a3ca6565c7492e3caaf82a3e355cc660d1574",
+      "bytes": 1519499
+    },
+    "entity2id.txt": {
+      "sha256": "d5d11048f6fc8b2a90aedba15746af4b78395b43d0aa688e25ee10d59dcf1215",
+      "bytes": 233092
+    },
+    "relation2id.txt": {
+      "sha256": "d7388ebed4d020d0c00a1037e77b763c1caff9237baddd9ae1f27c4ff27deef2",
+      "bytes": 15759
+    },
+    "entities.dict": {
+      "sha256": "33fda1be8d96ba73500c86f6ce7d5a51d866e6426e0cb03105235f0e62d7ba56",
+      "bytes": 218551
+    },
+    "relations.dict": {
+      "sha256": "e116ff3010c1e1544dbe85e6a2a1d847b9c4b4f85d51b87f0d642b0dd220dd15",
+      "bytes": 15522
+    },
+    "debug_valid_100.txt": {
+      "sha256": "fcb3660e9da614179574b8765349b40752d81769a5c389eb54260d8954e676c7",
+      "bytes": 7281
+    }
+  },
+  "preparation": {
+    "split_bytes_changed": false,
+    "source_ids_preserved": true,
+    "rotate_dictionary_format": "integer_id<TAB>label",
+    "triples_format": "head_label<TAB>relation_label<TAB>tail_label",
+    "debug_subset": "First 100 validation rows, for debugging only",
+    "checkpoint_warning": "External checkpoints must use exactly these entity and relation IDs",
+    "filtering": "Use train + valid + test to filter other true answers; retain target",
+    "training": "Train on train only; select checkpoints using validation only",
+    "overlap_check_scope": "Exact duplicate triples only; not a full audit of all leakage types"
+  }
+}
