@@ -6,6 +6,7 @@
 /checkpoints/
 /models/
 /runs/
+/artifacts/
 *.log
 
 # Local Python environments and caches

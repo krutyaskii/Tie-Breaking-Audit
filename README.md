@@ -6,8 +6,58 @@ We will evaluate ConvKB and RotatE on FB15k-237 and measure how optimistic,
 pessimistic, and uniform random tie-breaking change ranking metrics at fixed
 model weights.
 
-The current repository contains the shared data setup. Model training,
-checkpoint adapters, and the shared evaluator are the next stages.
+The project includes shared data preparation and a RotatE training/scoring
+pipeline. The completed `rotate_colab_budget` run trained for 30,000 updates
+on a Colab Tesla T4. Its selected checkpoint is ready for the shared evaluator.
+The supplied handoff records **zero scored test queries**. The reported MRR
+of 0.286361 belongs to validation checkpoint selection.
+
+## Completed run and evaluation status
+
+- [RotatE experiment report](reports/ROTATE_REPORT.md) covers the data,
+  implementation, completed run, measured validation results, and limitations.
+- [Verified run evidence](reports/rotate_colab_budget_run.json) preserves the
+  supplied archive's metadata and validation history with integrity checks.
+- [Shared test evaluation protocol](docs/EVALUATION.md) defines the final
+  audit on 20,466 test triples, or 40,932 head/tail queries, and the remaining
+  deliverables for both model owners and the evaluator.
+- [Evaluator handoff guide](docs/ROTATE_HANDOFF.md) explains how to load the
+  frozen checkpoint and score candidates with the original IDs.
+
+Final test metrics, tie-group distributions, five random evaluation seeds,
+and the ConvKB comparison remain to be produced by the shared evaluator.
+The report documents the completed data and RotatE contribution. The final
+team report will incorporate those test results.
+
+## Obtain the trained checkpoint
+
+The trained evaluator package is shared separately by the RotatE owner.
+Request `rotate_colab_budget_handoff_20261102_130712.zip` (22,774,609 bytes).
+It includes the selected weights, matching dictionaries, scoring code,
+configuration, environment, and training/validation logs. Dataset splits
+are reconstructed using the included preparation script.
+
+Verify the archive against the committed
+[SHA-256 sidecar](reports/rotate_colab_budget_handoff_20261102_130712.zip.sha256)
+before extraction. Then follow the
+[handoff instructions](docs/ROTATE_HANDOFF.md). The
+[run evidence](reports/rotate_colab_budget_run.json) also records the archive
+and model hashes. The checkpoint package is distributed separately from Git.
+
+## Train RotatE in Colab
+
+Upload [RotatE_Colab.ipynb](notebooks/RotatE_Colab.ipynb) to
+[Google Colab](https://colab.research.google.com/), choose a T4 GPU, and run
+the cells in order. The notebook embeds the code and needs no GitHub push.
+It can save resumable checkpoints to your Google Drive and export a package
+for the shared evaluator.
+
+Read [the training guide](docs/ROTATE.md) before selecting a preset.
+The default `colab_budget` run differs from the paper's hyperparameters; the
+larger `paper` preset is also provided. Weights are selected using validation
+only. No final test metrics are computed by the training pipeline.
+
+The evaluator interface is documented in [the handoff guide](docs/ROTATE_HANDOFF.md).
 
 ## Quick start
 

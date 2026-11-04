@@ -1,2 +1,5 @@
 # Keep the reference manifest and source files stable across Windows and Unix.
 * text=auto eol=lf
+
+# Preserve the exact provenance bytes recorded in completed checkpoints.
+/vendor/kg_reeval/SOURCE.json -text

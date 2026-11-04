@@ -1,0 +1,22 @@
+{
+  "name": "rotate_colab_budget",
+  "description": "Compute-limited checkpoint, not the paper's hyperparameter setting.",
+  "seed": 42,
+  "hidden_dim": 200,
+  "gamma": 12.0,
+  "batch_size": 512,
+  "microbatch_size": 64,
+  "negative_sample_size": 128,
+  "learning_rate": 0.0001,
+  "adversarial_temperature": 1.0,
+  "max_steps": 30000,
+  "warm_up_steps": 15000,
+  "validation_every": 3000,
+  "validation_triples": 0,
+  "validation_seed": 2026,
+  "checkpoint_every": 1000,
+  "log_every": 100,
+  "query_batch_size": 8,
+  "candidate_chunk_size": 2048,
+  "cpu_threads": 4
+}

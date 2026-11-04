@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/svjan5/kg-reeval",
+  "commit": "999b75e8a3ffa81973ea33bb22de17511b136bd1",
+  "files": [
+    {
+      "file": "vendor/kg_reeval/model.py",
+      "upstream_git_blob_sha": "d206a8f5e7bcb73af4eaffd86ef564f682787257",
+      "upstream_url": "https://github.com/svjan5/kg-reeval/blob/999b75e8a3ffa81973ea33bb22de17511b136bd1/RotatE/codes/model.py",
+      "modified": true
+    },
+    {
+      "file": "vendor/kg_reeval/dataloader.py",
+      "upstream_git_blob_sha": "70d43a256e5e42041195968c42ec4d7a7cf35785",
+      "upstream_url": "https://github.com/svjan5/kg-reeval/blob/999b75e8a3ffa81973ea33bb22de17511b136bd1/RotatE/codes/dataloader.py",
+      "modified": true
+    },
+    {
+      "file": "vendor/kg_reeval/UPSTREAM_README.md",
+      "upstream_git_blob_sha": "1a1fe21ad7dc60436eefee1fba56ec193e3751a9",
+      "upstream_url": "https://github.com/svjan5/kg-reeval/blob/999b75e8a3ffa81973ea33bb22de17511b136bd1/RotatE/README.md",
+      "modified": false
+    },
+    {
+      "file": "vendor/kg_reeval/LICENSE",
+      "upstream_git_blob_sha": "f49a4e16e68b128803cc2dcea614603632b04eac",
+      "upstream_url": "https://github.com/svjan5/kg-reeval/blob/999b75e8a3ffa81973ea33bb22de17511b136bd1/LICENSE",
+      "modified": false
+    }
+  ],
+  "changes": [
+    "model.py: remove unused sklearn import; Countries evaluation is unsupported",
+    "model.py: relative TestDataset import",
+    "dataloader.py: replace removed np.in1d with np.isin",
+    "Upstream test_step is not called: it references positive_arg before assignment and does not consistently apply remapped target IDs",
+    "Upstream RotatE and train_step method bodies remain unchanged",
+    "New trainer uses the same loss with microbatch gradient accumulation and a resumable single-process shuffled-epoch sampler"
+  ],
+  "unchanged_method_ast_sha256": {
+    "RotatE": "e81de9c2435f6ff8669fc91a0f600510db74da93805ec18159626c924d5c533c",
+    "train_step": "3586c583e07fabaf20b37668e9c503b91d7dccf4bdf8eb64f6f07df016e29e33"
+  },
+  "method_hash_format": "SHA256 of canonical JSON AST; ignore docstrings, location attributes and Python 3.12 type_params"
+}

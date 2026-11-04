@@ -1,0 +1,4 @@
+# Bootstrap constraints. Each training run also saves exact installed versions.
+numpy>=1.24,<3
+torch>=2.4,<3
+psutil>=5.9
