@@ -1,0 +1,1 @@
+"""ConvKB training, scoring adapter, and evaluator handoff (PyTorch implementation)."""

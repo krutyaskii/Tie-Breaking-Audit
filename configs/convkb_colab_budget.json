@@ -1,0 +1,20 @@
+{
+  "name": "convkb_colab_budget",
+  "description": "Compute-limited checkpoint matching RotatE colab_budget's 30,000-update budget.",
+  "seed": 42,
+  "hidden_size": 100,
+  "num_filters": 128,
+  "batch_size": 256,
+  "negative_sample_size": 10,
+  "learning_rate": 0.01,
+  "lmbda": 0.0001,
+  "max_steps": 30000,
+  "validation_every": 3000,
+  "validation_triples": 0,
+  "validation_seed": 2026,
+  "checkpoint_every": 1000,
+  "log_every": 100,
+  "query_batch_size": 64,
+  "candidate_chunk_size": 512,
+  "cpu_threads": 4
+}
