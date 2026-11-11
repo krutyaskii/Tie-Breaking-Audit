@@ -1,83 +1,41 @@
 # ConvKB evaluator handoff
 
-This bundle contains ConvKB weights selected using validation only, exact ID
-mappings, raw-score adapter code, configuration, environment versions, training
-logs, a data manifest, and a small validation score example. It contains no
-dataset splits or final test metrics.
+The corrected 20261111_025759 package mixes h/r/t at each coordinate: input
+`[B,1,3,D]`, kernel `(3,1)`, output `[B,F,1,D]`, ReLU and `F*D` readout.
+The architecture identifier is `convkb_hrt_v1`. The adapter detects the
+architecture from tensor shapes and loads weights strictly.
 
-## Implementation note
+The 20261108 package used kernel `(1,3)` and `F*3*(D-2)` readout, processing
+h/r/t separately. `convkb/legacy_model.py` preserves it for diagnostics with
+explicit `allow_legacy=True` and identity `legacy_convkb_variant`.
 
-This checkpoint is a **legacy ConvKB variant**, not a faithful ConvKB
-implementation. Its convolution does not combine h/r/t at the same embedding
-coordinate. Corrected architecture and retraining are deferred. Do not present
-this checkpoint as a ConvKB replication.
+## Corrected package evidence
 
-The input is `[B,1,3,D]`; kernel `(1,3)` moves along D and processes h/r/t
-separately. The legacy training objective uses `softplus(-pos) +
-softplus(neg)` plus L2 on `score_weight` only. No claim of upstream objective
-equivalence is made.
+- ZIP SHA-256: `9008666f453d8306531b6cbf884cbd79b22d380198ba5124a205e47745065a5b`.
+- model.pt SHA-256: `dfa921d625ae229320106a6321844991a385ca4f9a3cb87117eb29e212cbfe46`.
+- 40/40 internal checksums match; dictionaries match the shared FB15k-237 IDs.
+- 30000 updates completed, seed 42, best step 6000 selected on 17535 validation
+  triples; validation MRR 0.15885317359985426. Zero test queries in the package.
 
-## Score direction
+The local objective is `softplus(-positive)+softplus(negative)` plus L2 on
+`score_weight` only; higher scores are better. The archive's docstring also
+mentions L2 on conv.weight, which is inaccurate. This budget PyTorch recipe
+does not establish equivalence to the original paper's TensorFlow training.
 
-Larger scores mean more plausible triples. The adapter returns raw float32
-scores without inversion. Candidate column `j` belongs to entity ID `j` in
-`entities.dict`. No filtering, sorting, or tie-breaking is applied.
-
-## Open the bundle
-
-Extract the ZIP into a new folder. Use a trusted Python environment with the
-versions in `requirements-lock.txt`; the training machine and device are
-recorded in `environment.json`.
+Verify the archive and SHA256SUMS.json before loading; preserve dictionary IDs:
 
 ```python
-from pathlib import Path
-import numpy as np
 from convkb.adapter import ConvKBAdapter
-
-bundle = Path('.')
-adapter = ConvKBAdapter.load(bundle / 'model.pt', mapping_dir=bundle, device='cpu')
-examples = np.load(bundle / 'validation_score_examples.npz')
-triples = examples['triples']
-head_scores = adapter.score_candidates(triples, mode='head')
-tail_scores = adapter.score_candidates(triples, mode='tail')
-print(head_scores.shape, head_scores.dtype)
+adapter = ConvKBAdapter.load('package/model.pt', 'data/FB15k-237', device='cpu')
+scores = adapter.score_candidates([[0, 0, 1]], mode='tail')
 ```
-## Data and IDs
 
-Use the shared FB15k-237 splits reconstructed with `python prepare_data.py`.
-Original split hashes are in `data_manifest.json`. The adapter checks both
-dictionary hashes before loading the model.
+Scores are finite unrounded float32, column j is entity ID j. The adapter does
+not filter or rank. See [AUDIT_STATUS.md](AUDIT_STATUS.md) for full commands.
 
-Do not reassign IDs. For each evaluated triple, score all entity candidates
-for both head and tail prediction. Filter other known true answers using
-train + valid + test, retaining the target. Define ties by exact equality of
-the unrounded float32 scores returned by this adapter.
-
-## Verify the bundle
-
-Run this before loading weights:
-
-```python
-import hashlib
-import json
-from pathlib import Path
-
-root = Path('.')
-reference = json.loads((root / 'SHA256SUMS.json').read_text())
-for name, expected in reference.items():
-    with (root / name).open('rb') as stream:
-        digest = hashlib.file_digest(stream, 'sha256').hexdigest()
-    assert digest == expected, name
-print('All bundle checksums match')
-```
-The supplied `adapter_checks.json` checks shape, finite scores, mapping and
-head repeatability. It does not compare with an independent upstream scorer.
-
-## Information to report
-
-Report the preset, actual selected step, dataset hashes, checkpoint SHA-256,
-training seed, environment/device, validation selection rule, training time,
-observed memory use, and deviations from the paper. Results apply to this
-checkpoint. Random tie-breaking seeds describe evaluation randomness at fixed
-weights; they are not independent training runs.
-
+Local verification checks repeatability in both modes and fails on false
+results. Independent hand-set coordinate formula and mapping tests are in
+`tests/test_convkb.py`. The archive verifier checks only head repeatability
+and does not independently compare upstream architecture. Its historical
+provenance does not cover ConvKB source; future local runs hash convkb/*.py.
+Historical archive files are not rewritten.

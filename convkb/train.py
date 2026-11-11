@@ -60,7 +60,7 @@ class TrainingBatches:
 
 
 def train_batch(model, optimizer, batch, lmbda, device):
-    """ConvKB loss: softplus(-pos) + softplus(neg), plus L2 on score_weight and conv.weight."""
+    """Local objective: softplus(-pos) + softplus(neg), plus L2 on score_weight."""
     model.train()
     optimizer.zero_grad(set_to_none=True)
     positives, negatives, mode = batch
@@ -181,7 +181,7 @@ def main():
         torch.cuda.reset_peak_memory_stats()
 
     def payload():
-        return {"format_version": 1, "model": "ConvKB", "config": cfg,
+        return {"format_version": 1, "model": "ConvKB", "architecture": model.architecture, "config": cfg,
                 "data_manifest": manifest, "source_provenance": provenance, "environment": env,
                 "model_state_dict": {key: value.detach().cpu() for key, value in model.state_dict().items()},
                 "step": step, "score_direction": "higher_is_better",

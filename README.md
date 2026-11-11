@@ -14,11 +14,12 @@ of 0.286361 belongs to validation checkpoint selection.
 
 ## Completed run and evaluation status
 
-`audit.py` is a work-in-progress streaming evaluator, with reproducible
-aggregation from per-query counts. The existing ConvKB checkpoint is a legacy
-architecture variant and cannot establish a ConvKB replication; its
-correction and retraining are pending. No full test audit is yet reported.
-See [current audit instructions](docs/AUDIT_STATUS.md).
+`audit_pipeline.py` verifies RotatE and corrected ConvKB packages, runs tests
+and validation checks, then streams the full audit. `audit.py` recomputes
+all policies and five seeded estimates from saved per-query counts.
+See [run instructions](docs/AUDIT_STATUS.md) and the self-contained
+[evaluation notebook](notebooks/Evaluation_Colab.ipynb).
+Corrected ConvKB weights are available; full test results remain pending.
 
 - [RotatE experiment report](reports/ROTATE_REPORT.md) covers the data,
   implementation, completed run, measured validation results, and limitations.
@@ -30,8 +31,9 @@ See [current audit instructions](docs/AUDIT_STATUS.md).
 - [Evaluator handoff guide](docs/ROTATE_HANDOFF.md) explains how to load the
   frozen checkpoint and score candidates with the original IDs.
 
-Final test metrics, tie-group distributions, five random evaluation seeds,
-and the ConvKB comparison remain to be produced by the shared evaluator.
+The evaluator produces test metrics, tie-group distributions, five random
+evaluation seeds and a ConvKB comparison from saved counts. Local checks
+have exercised validation pilots; a complete test audit remains to be run.
 The report documents the completed data and RotatE contribution. The final
 team report will incorporate those test results.
 

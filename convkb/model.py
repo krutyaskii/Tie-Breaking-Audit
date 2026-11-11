@@ -1,6 +1,6 @@
 """PyTorch ConvKB scorer, adapted from daiquocnguyen/ConvKB (Apache-2.0).
 
-Score direction: higher is better. The upstream ConvKB loss
+Score direction: higher is better. The local ConvKB loss
 (softplus(-pos) + softplus(neg)) trains positive triples to have larger
 scores than negative triples, so the adapter returns raw scores unchanged.
 """
@@ -18,15 +18,15 @@ class ConvKB(nn.Module):
         self.num_filters = num_filters
         self.entity_embedding = nn.Embedding(nentity, hidden_size)
         self.relation_embedding = nn.Embedding(nrelation, hidden_size)
-        # Conv2d with kernel (1, 3): 3 corresponds to the concatenated [h, r, t].
-        self.conv = nn.Conv2d(1, num_filters, kernel_size=(1, 3), bias=True)
-        # After conv with kernel (1, 3), the hidden dimension shrinks by 2.
+        self.architecture = 'convkb_hrt_v1'
+        # Each filter combines h[i], r[i], t[i], without mixing coordinates.
+        self.conv = nn.Conv2d(1, num_filters, kernel_size=(3, 1), bias=True)
         self.score_weight = nn.Parameter(
-            torch.empty(num_filters * 3 * (hidden_size - 2), 1)
+            torch.empty(num_filters * hidden_size, 1)
         )
         nn.init.xavier_uniform_(self.entity_embedding.weight)
         nn.init.xavier_uniform_(self.relation_embedding.weight)
-        nn.init.xavier_uniform_(self.conv.weight)
+        nn.init.trunc_normal_(self.conv.weight, mean=0.0, std=0.1, a=-0.2, b=0.2)
         nn.init.constant_(self.conv.bias, 0.1)
         nn.init.normal_(self.score_weight, mean=0.0, std=0.1)
 

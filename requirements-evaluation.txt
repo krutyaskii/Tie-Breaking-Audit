@@ -1,0 +1,5 @@
+# Tested together on Windows / Python 3.13.15; actual CPU torch is 2.11.0+cpu.
+numpy==2.3.3
+torch==2.11.0
+matplotlib==3.10.7
+psutil==7.2.2

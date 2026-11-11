@@ -9,7 +9,8 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 paths = [ROOT / name for name in (
-    "README.md", "prepare_data.py", "requirements-rotate.txt", "reports/data_manifest.json")]
+    "README.md", "prepare_data.py", "requirements-rotate.txt", "reports/data_manifest.json",
+    "audit.py", "audit_pipeline.py", "audit_bundle.py", "requirements-evaluation.txt")]
 for directory in ("convkb", "rotate", "vendor", "configs", "tests", "docs"):
     paths.extend(path for path in (ROOT / directory).rglob("*")
                  if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc")

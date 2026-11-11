@@ -51,7 +51,7 @@ def main():
     shutil.copy2(ROOT / "docs/CONVKB_HANDOFF.md", args.output / "README.md")
     write_json(args.output / "adapter_checks.json", report)
     write_json(args.output / "handoff.json", {
-        "model": "ConvKB", "selected_step": metadata["step"], "training_complete": summary["training_complete"],
+        "model": "ConvKB", "architecture": "convkb_hrt_v1", "selected_step": metadata["step"], "training_complete": summary["training_complete"],
         "smoke_only": summary["name"] == "convkb_smoke", "configuration": summary["name"],
         "selection": metadata["selection"], "checkpoint_sha256": file_hash(args.output / "model.pt"),
         "score_direction": "higher_is_better",

@@ -1,0 +1,569 @@
+{
+  "status": "validation_only",
+  "full_test_queries_scored": 0,
+  "tests": {
+    "count": 23,
+    "passed": true,
+    "log_sha256": "867ebfdd955850016e630e0860cf8c265190f07b5483dad47c68c8d6dd36f8b3"
+  },
+  "package_checks": {
+    "rotate": {
+      "archive_sha256": "2c66eecac4fe499f8c3d695cb107d1c6025cda6758c875ea0461ba59421a0d1b",
+      "checkpoint_sha256": "5ec0bbc39e9568f6362ac38010cc752531dfbdba7aaea029661838707ce8b622",
+      "verified_internal_files": 33,
+      "selected_step": 30000,
+      "validation_MRR": 0.2863605777207394,
+      "validation_records": 11
+    },
+    "convkb": {
+      "archive_sha256": "9008666f453d8306531b6cbf884cbd79b22d380198ba5124a205e47745065a5b",
+      "checkpoint_sha256": "dfa921d625ae229320106a6321844991a385ca4f9a3cb87117eb29e212cbfe46",
+      "verified_internal_files": 40,
+      "selected_step": 6000,
+      "validation_MRR": 0.15885317359985426,
+      "validation_records": 11
+    }
+  },
+  "environment": {
+    "python": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.3.3",
+      "torch": "2.11.0+cpu",
+      "matplotlib": "3.10.7",
+      "psutil": "7.2.2"
+    }
+  },
+  "aggregation_without_torch": "passed; both metric dictionaries reproduced exactly",
+  "notebooks": "All Python cells parsed; embedded source in all three notebooks matches repository files.",
+  "pilots": {
+    "rotate": {
+      "metadata": {
+        "config": {
+          "model": "rotate",
+          "checkpoint_sha256": "5ec0bbc39e9568f6362ac38010cc752531dfbdba7aaea029661838707ce8b622",
+          "data_sha256": {
+            "train.txt": "6e4c2782169af21e9743f3b1d200886f5d595bf6bc504ec1351720949c5cdfae",
+            "valid.txt": "cf6309010852f6a8d47a45df830a426415d1ee6f7a3970a8376ff1fb81db4a5c",
+            "test.txt": "5711cf41623ceb4eacc50eb6108a3ca6565c7492e3caaf82a3e355cc660d1574",
+            "entity2id.txt": "d5d11048f6fc8b2a90aedba15746af4b78395b43d0aa688e25ee10d59dcf1215",
+            "relation2id.txt": "d7388ebed4d020d0c00a1037e77b763c1caff9237baddd9ae1f27c4ff27deef2",
+            "entities.dict": "33fda1be8d96ba73500c86f6ce7d5a51d866e6426e0cb03105235f0e62d7ba56",
+            "relations.dict": "e116ff3010c1e1544dbe85e6a2a1d847b9c4b4f85d51b87f0d642b0dd220dd15",
+            "debug_valid_100.txt": "fcb3660e9da614179574b8765349b40752d81769a5c389eb54260d8954e676c7"
+          },
+          "source_sha256": {
+            "audit.py": "b8f90fecb2606513de0d420dcaab47dd7b178d30a7f974f7edab15a3c3401494",
+            "audit_bundle.py": "e618de054bfd409b3e3083df66cdabf905630c2764db6d5102de3d43ff0e715b",
+            "audit_pipeline.py": "0fe3c0227895a045d20f0430efd10e7cb1a752817ef5c485fb1c195ec2c46140",
+            "rotate/__init__.py": "66750bbf073449436e3f6103082bb6091b22f5309d221e33ec8ff1cc34fdc2cf",
+            "rotate/adapter.py": "d56bb4c30e93e6a5660ae147bffee2a5a2c5eacc318a364af1e1c237bc05e90e",
+            "rotate/common.py": "6bf50810deff9b3d209bba32aab803db9b5367d491a55058c78e31956bc313da",
+            "rotate/export.py": "09514efb099e0a1864f044ecc38c0bc25b41be1a79f01efde38243843e1757a0",
+            "rotate/train.py": "75d849e734f139933094a049d5afb968ad9917d5e9d11c27b26197a47920847c",
+            "rotate/verify.py": "c90b96fe3f987676faadf8673eeeb6070e9bb98534eb5582eea9c3decf25e332",
+            "convkb/__init__.py": "744caa235ceecb4f645bcd183fcb3e34276d05ee408a21a231f4135f89b4e5f6",
+            "convkb/adapter.py": "fa10c33ccd55c0a43d409d5b05259c1433f6bc162bcdf37bdd4bb1b7030dfda4",
+            "convkb/common.py": "b5b2c7937cb836c8ee53c0c99f098b91ea88344b01bb841cf84c6693812c3740",
+            "convkb/export.py": "5e4f2a49121d9c330dafabe9ef280bdbe76f49f77526818b7fecc96e8280c08d",
+            "convkb/legacy_model.py": "8aab7f3db087d282151dc4d2946b62d1a03af15853208500cad11a06bba50063",
+            "convkb/model.py": "8fab940be0d7e6232512a7127e82185056eb56927384592ac7e63e380b61ec57",
+            "convkb/train.py": "02e31917c98d5d9a898e426300642203bb89c3db6be8c32281583038bf6c401d",
+            "convkb/verify.py": "172c3ea1b2cdd9fca20d7f94b67eece7c4ea1d47c0216d5c829c1f683f1d3d92",
+            "vendor/kg_reeval/__init__.py": "8dbd7ae7b155625ecdfb6858083ccaaacfb0e8c867779754fb2d15cb45ad6268",
+            "vendor/kg_reeval/dataloader.py": "be719ac3274e6d453547d9e1e8f2abbeb2cbfdad30d6ad9b0d6a90471ac5f4e3",
+            "vendor/kg_reeval/model.py": "43e94112f66313c5c04a05aabc3361696b6d3cd15b29732c0a5c654816ee7909"
+          },
+          "device": "cpu",
+          "gpu": null,
+          "torch": "2.11.0+cpu",
+          "cuda": null,
+          "cudnn": null,
+          "cudnn_deterministic": false,
+          "cudnn_benchmark": false,
+          "numpy": "2.3.3",
+          "python": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]",
+          "platform": "Windows-11-10.0.26200-SP0",
+          "batch": 8,
+          "chunk": 2048,
+          "split": "valid",
+          "rows_per_mode": 8,
+          "query_count": 16,
+          "nentity": 14541,
+          "filter": "union(train,valid,test), retain target",
+          "order": "head then tail, split row order",
+          "seeds": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "precision": "float32",
+          "tf32": false,
+          "architecture": "rotate_complex_v1",
+          "cpu_threads": 4,
+          "target_sha256": "82e21b946c46262700b3c1516df7a0c9fc3aa375f278bb9ed150b62261f92aa0",
+          "selected_step": 30000,
+          "training_seed": 42,
+          "archive_sha256": "2c66eecac4fe499f8c3d695cb107d1c6025cda6758c875ea0461ba59421a0d1b",
+          "deterministic_algorithms": true,
+          "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+          "cublas_workspace_config": ":4096:8",
+          "matmul_precision": "highest",
+          "interop_threads": 6,
+          "mkldnn_enabled": true,
+          "torch_build": "PyTorch built with:\n  - C++ Version: 201703\n  - MSVC 194234444\n  - Intel(R) oneAPI Math Kernel Library Version 2025.3-Product Build 20251007 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.10.2 (Git Hash f1d471933dc852f956fd05389f9313c7148783d5)\n  - OpenMP 2019\n  - LAPACK is enabled (usually provided by MKL)\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=70d99e998b4955e0049d13a98d77ae1b14db1f45, CXX_COMPILER=C:/actions-runner/_work/pytorch/pytorch/pytorch/.ci/pytorch/windows/tmp_bin/sccache-cl.exe, CXX_FLAGS=/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /bigobj /FS /utf-8 -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE /wd4624 /wd4068 /wd4067 /wd4267 /wd4661 /wd4717 /wd4244 /wd4804 /wd4273, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.11.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=OFF, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n"
+        },
+        "status": "complete",
+        "created_utc": "2026-11-11T11:05:02.129297+00:00",
+        "queries_scored": 16,
+        "per_query_sha256": "518174769a6a3420eeda8fdbdf70e39780c6c01c46ec543dec538368d51fe2a2",
+        "completed_utc": "2026-11-11T11:05:06.900264+00:00"
+      },
+      "metrics": {
+        "overall": {
+          "optimistic": {
+            "MRR": 0.33193443541201606,
+            "Hits@1": 0.25,
+            "Hits@3": 0.375,
+            "Hits@10": 0.4375
+          },
+          "pessimistic": {
+            "MRR": 0.33193443541201606,
+            "Hits@1": 0.25,
+            "Hits@3": 0.375,
+            "Hits@10": 0.4375
+          },
+          "expected_random": {
+            "MRR": 0.33193443541201606,
+            "Hits@1": 0.25,
+            "Hits@3": 0.375,
+            "Hits@10": 0.4375
+          },
+          "gap": 0.0
+        },
+        "head": {
+          "optimistic": {
+            "MRR": 0.09595761541277675,
+            "Hits@1": 0.0,
+            "Hits@3": 0.125,
+            "Hits@10": 0.25
+          },
+          "pessimistic": {
+            "MRR": 0.09595761541277675,
+            "Hits@1": 0.0,
+            "Hits@3": 0.125,
+            "Hits@10": 0.25
+          },
+          "expected_random": {
+            "MRR": 0.09595761541277675,
+            "Hits@1": 0.0,
+            "Hits@3": 0.125,
+            "Hits@10": 0.25
+          },
+          "gap": 0.0
+        },
+        "tail": {
+          "optimistic": {
+            "MRR": 0.5679112554112553,
+            "Hits@1": 0.5,
+            "Hits@3": 0.625,
+            "Hits@10": 0.625
+          },
+          "pessimistic": {
+            "MRR": 0.5679112554112553,
+            "Hits@1": 0.5,
+            "Hits@3": 0.625,
+            "Hits@10": 0.625
+          },
+          "expected_random": {
+            "MRR": 0.5679112554112553,
+            "Hits@1": 0.5,
+            "Hits@3": 0.625,
+            "Hits@10": 0.625
+          },
+          "gap": 0.0
+        },
+        "ties": {
+          "histogram": {
+            "1": 16
+          },
+          "count": 0,
+          "fraction": 0.0,
+          "min": 1,
+          "median": 1.0,
+          "p90": 1.0,
+          "p99": 1.0,
+          "max": 1
+        },
+        "seeds": [
+          {
+            "seed": 0,
+            "MRR": 0.33193443541201606,
+            "Hits@1": 0.25,
+            "Hits@3": 0.375,
+            "Hits@10": 0.4375
+          },
+          {
+            "seed": 1,
+            "MRR": 0.33193443541201606,
+            "Hits@1": 0.25,
+            "Hits@3": 0.375,
+            "Hits@10": 0.4375
+          },
+          {
+            "seed": 2,
+            "MRR": 0.33193443541201606,
+            "Hits@1": 0.25,
+            "Hits@3": 0.375,
+            "Hits@10": 0.4375
+          },
+          {
+            "seed": 3,
+            "MRR": 0.33193443541201606,
+            "Hits@1": 0.25,
+            "Hits@3": 0.375,
+            "Hits@10": 0.4375
+          },
+          {
+            "seed": 4,
+            "MRR": 0.33193443541201606,
+            "Hits@1": 0.25,
+            "Hits@3": 0.375,
+            "Hits@10": 0.4375
+          }
+        ],
+        "seed_mean": {
+          "MRR": 0.33193443541201606,
+          "Hits@1": 0.25,
+          "Hits@3": 0.375,
+          "Hits@10": 0.4375
+        },
+        "seed_std_ddof1": {
+          "MRR": 0.0,
+          "Hits@1": 0.0,
+          "Hits@3": 0.0,
+          "Hits@10": 0.0
+        },
+        "seed_mean_minus_expected": {
+          "MRR": 0.0,
+          "Hits@1": 0.0,
+          "Hits@3": 0.0,
+          "Hits@10": 0.0
+        }
+      },
+      "compatibility": {
+        "passed": true,
+        "device": "cpu",
+        "checkpoint_sha256": "5ec0bbc39e9568f6362ac38010cc752531dfbdba7aaea029661838707ce8b622",
+        "architecture": "rotate_complex_v1",
+        "checks": {
+          "head": {
+            "max_abs_error": 3.814697265625e-06,
+            "atol": 0.0001,
+            "rtol": 1e-05,
+            "compatible": true,
+            "exact_repeatability": true
+          },
+          "tail": {
+            "max_abs_error": 3.814697265625e-06,
+            "atol": 0.0001,
+            "rtol": 1e-05,
+            "compatible": true,
+            "exact_repeatability": true
+          }
+        },
+        "note": "Tolerance compares devices; ties still use exact float32 equality."
+      }
+    },
+    "convkb": {
+      "metadata": {
+        "config": {
+          "model": "convkb",
+          "checkpoint_sha256": "dfa921d625ae229320106a6321844991a385ca4f9a3cb87117eb29e212cbfe46",
+          "data_sha256": {
+            "train.txt": "6e4c2782169af21e9743f3b1d200886f5d595bf6bc504ec1351720949c5cdfae",
+            "valid.txt": "cf6309010852f6a8d47a45df830a426415d1ee6f7a3970a8376ff1fb81db4a5c",
+            "test.txt": "5711cf41623ceb4eacc50eb6108a3ca6565c7492e3caaf82a3e355cc660d1574",
+            "entity2id.txt": "d5d11048f6fc8b2a90aedba15746af4b78395b43d0aa688e25ee10d59dcf1215",
+            "relation2id.txt": "d7388ebed4d020d0c00a1037e77b763c1caff9237baddd9ae1f27c4ff27deef2",
+            "entities.dict": "33fda1be8d96ba73500c86f6ce7d5a51d866e6426e0cb03105235f0e62d7ba56",
+            "relations.dict": "e116ff3010c1e1544dbe85e6a2a1d847b9c4b4f85d51b87f0d642b0dd220dd15",
+            "debug_valid_100.txt": "fcb3660e9da614179574b8765349b40752d81769a5c389eb54260d8954e676c7"
+          },
+          "source_sha256": {
+            "audit.py": "b8f90fecb2606513de0d420dcaab47dd7b178d30a7f974f7edab15a3c3401494",
+            "audit_bundle.py": "e618de054bfd409b3e3083df66cdabf905630c2764db6d5102de3d43ff0e715b",
+            "audit_pipeline.py": "0fe3c0227895a045d20f0430efd10e7cb1a752817ef5c485fb1c195ec2c46140",
+            "rotate/__init__.py": "66750bbf073449436e3f6103082bb6091b22f5309d221e33ec8ff1cc34fdc2cf",
+            "rotate/adapter.py": "d56bb4c30e93e6a5660ae147bffee2a5a2c5eacc318a364af1e1c237bc05e90e",
+            "rotate/common.py": "6bf50810deff9b3d209bba32aab803db9b5367d491a55058c78e31956bc313da",
+            "rotate/export.py": "09514efb099e0a1864f044ecc38c0bc25b41be1a79f01efde38243843e1757a0",
+            "rotate/train.py": "75d849e734f139933094a049d5afb968ad9917d5e9d11c27b26197a47920847c",
+            "rotate/verify.py": "c90b96fe3f987676faadf8673eeeb6070e9bb98534eb5582eea9c3decf25e332",
+            "convkb/__init__.py": "744caa235ceecb4f645bcd183fcb3e34276d05ee408a21a231f4135f89b4e5f6",
+            "convkb/adapter.py": "fa10c33ccd55c0a43d409d5b05259c1433f6bc162bcdf37bdd4bb1b7030dfda4",
+            "convkb/common.py": "b5b2c7937cb836c8ee53c0c99f098b91ea88344b01bb841cf84c6693812c3740",
+            "convkb/export.py": "5e4f2a49121d9c330dafabe9ef280bdbe76f49f77526818b7fecc96e8280c08d",
+            "convkb/legacy_model.py": "8aab7f3db087d282151dc4d2946b62d1a03af15853208500cad11a06bba50063",
+            "convkb/model.py": "8fab940be0d7e6232512a7127e82185056eb56927384592ac7e63e380b61ec57",
+            "convkb/train.py": "02e31917c98d5d9a898e426300642203bb89c3db6be8c32281583038bf6c401d",
+            "convkb/verify.py": "172c3ea1b2cdd9fca20d7f94b67eece7c4ea1d47c0216d5c829c1f683f1d3d92",
+            "vendor/kg_reeval/__init__.py": "8dbd7ae7b155625ecdfb6858083ccaaacfb0e8c867779754fb2d15cb45ad6268",
+            "vendor/kg_reeval/dataloader.py": "be719ac3274e6d453547d9e1e8f2abbeb2cbfdad30d6ad9b0d6a90471ac5f4e3",
+            "vendor/kg_reeval/model.py": "43e94112f66313c5c04a05aabc3361696b6d3cd15b29732c0a5c654816ee7909"
+          },
+          "device": "cpu",
+          "gpu": null,
+          "torch": "2.11.0+cpu",
+          "cuda": null,
+          "cudnn": null,
+          "cudnn_deterministic": false,
+          "cudnn_benchmark": false,
+          "numpy": "2.3.3",
+          "python": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]",
+          "platform": "Windows-11-10.0.26200-SP0",
+          "batch": 2,
+          "chunk": 512,
+          "split": "valid",
+          "rows_per_mode": 8,
+          "query_count": 16,
+          "nentity": 14541,
+          "filter": "union(train,valid,test), retain target",
+          "order": "head then tail, split row order",
+          "seeds": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "precision": "float32",
+          "tf32": false,
+          "architecture": "convkb_hrt_v1",
+          "cpu_threads": 4,
+          "target_sha256": "82e21b946c46262700b3c1516df7a0c9fc3aa375f278bb9ed150b62261f92aa0",
+          "selected_step": 6000,
+          "training_seed": 42,
+          "archive_sha256": "9008666f453d8306531b6cbf884cbd79b22d380198ba5124a205e47745065a5b",
+          "deterministic_algorithms": true,
+          "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+          "cublas_workspace_config": ":4096:8",
+          "matmul_precision": "highest",
+          "interop_threads": 6,
+          "mkldnn_enabled": true,
+          "torch_build": "PyTorch built with:\n  - C++ Version: 201703\n  - MSVC 194234444\n  - Intel(R) oneAPI Math Kernel Library Version 2025.3-Product Build 20251007 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.10.2 (Git Hash f1d471933dc852f956fd05389f9313c7148783d5)\n  - OpenMP 2019\n  - LAPACK is enabled (usually provided by MKL)\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=70d99e998b4955e0049d13a98d77ae1b14db1f45, CXX_COMPILER=C:/actions-runner/_work/pytorch/pytorch/pytorch/.ci/pytorch/windows/tmp_bin/sccache-cl.exe, CXX_FLAGS=/DWIN32 /D_WINDOWS /EHsc /Zc:__cplusplus /bigobj /FS /utf-8 -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE /wd4624 /wd4068 /wd4067 /wd4267 /wd4661 /wd4717 /wd4244 /wd4804 /wd4273, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.11.0, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=OFF, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n"
+        },
+        "status": "complete",
+        "created_utc": "2026-11-11T11:05:42.815508+00:00",
+        "queries_scored": 16,
+        "per_query_sha256": "17f49166013562165639a619ab4244694d6072a9f121f3e193b787fd76ea4af5",
+        "completed_utc": "2026-11-11T11:05:54.422460+00:00"
+      },
+      "metrics": {
+        "overall": {
+          "optimistic": {
+            "MRR": 0.16861030419301953,
+            "Hits@1": 0.0,
+            "Hits@3": 0.25,
+            "Hits@10": 0.4375
+          },
+          "pessimistic": {
+            "MRR": 0.16861030419301953,
+            "Hits@1": 0.0,
+            "Hits@3": 0.25,
+            "Hits@10": 0.4375
+          },
+          "expected_random": {
+            "MRR": 0.16861030419301953,
+            "Hits@1": 0.0,
+            "Hits@3": 0.25,
+            "Hits@10": 0.4375
+          },
+          "gap": 0.0
+        },
+        "head": {
+          "optimistic": {
+            "MRR": 0.08449638017986476,
+            "Hits@1": 0.0,
+            "Hits@3": 0.125,
+            "Hits@10": 0.25
+          },
+          "pessimistic": {
+            "MRR": 0.08449638017986476,
+            "Hits@1": 0.0,
+            "Hits@3": 0.125,
+            "Hits@10": 0.25
+          },
+          "expected_random": {
+            "MRR": 0.08449638017986476,
+            "Hits@1": 0.0,
+            "Hits@3": 0.125,
+            "Hits@10": 0.25
+          },
+          "gap": 0.0
+        },
+        "tail": {
+          "optimistic": {
+            "MRR": 0.25272422820617435,
+            "Hits@1": 0.0,
+            "Hits@3": 0.375,
+            "Hits@10": 0.625
+          },
+          "pessimistic": {
+            "MRR": 0.25272422820617435,
+            "Hits@1": 0.0,
+            "Hits@3": 0.375,
+            "Hits@10": 0.625
+          },
+          "expected_random": {
+            "MRR": 0.25272422820617435,
+            "Hits@1": 0.0,
+            "Hits@3": 0.375,
+            "Hits@10": 0.625
+          },
+          "gap": 0.0
+        },
+        "ties": {
+          "histogram": {
+            "1": 16
+          },
+          "count": 0,
+          "fraction": 0.0,
+          "min": 1,
+          "median": 1.0,
+          "p90": 1.0,
+          "p99": 1.0,
+          "max": 1
+        },
+        "seeds": [
+          {
+            "seed": 0,
+            "MRR": 0.16861030419301953,
+            "Hits@1": 0.0,
+            "Hits@3": 0.25,
+            "Hits@10": 0.4375
+          },
+          {
+            "seed": 1,
+            "MRR": 0.16861030419301953,
+            "Hits@1": 0.0,
+            "Hits@3": 0.25,
+            "Hits@10": 0.4375
+          },
+          {
+            "seed": 2,
+            "MRR": 0.16861030419301953,
+            "Hits@1": 0.0,
+            "Hits@3": 0.25,
+            "Hits@10": 0.4375
+          },
+          {
+            "seed": 3,
+            "MRR": 0.16861030419301953,
+            "Hits@1": 0.0,
+            "Hits@3": 0.25,
+            "Hits@10": 0.4375
+          },
+          {
+            "seed": 4,
+            "MRR": 0.16861030419301953,
+            "Hits@1": 0.0,
+            "Hits@3": 0.25,
+            "Hits@10": 0.4375
+          }
+        ],
+        "seed_mean": {
+          "MRR": 0.16861030419301953,
+          "Hits@1": 0.0,
+          "Hits@3": 0.25,
+          "Hits@10": 0.4375
+        },
+        "seed_std_ddof1": {
+          "MRR": 0.0,
+          "Hits@1": 0.0,
+          "Hits@3": 0.0,
+          "Hits@10": 0.0
+        },
+        "seed_mean_minus_expected": {
+          "MRR": 0.0,
+          "Hits@1": 0.0,
+          "Hits@3": 0.0,
+          "Hits@10": 0.0
+        }
+      },
+      "compatibility": {
+        "passed": true,
+        "device": "cpu",
+        "checkpoint_sha256": "dfa921d625ae229320106a6321844991a385ca4f9a3cb87117eb29e212cbfe46",
+        "architecture": "convkb_hrt_v1",
+        "checks": {
+          "head": {
+            "max_abs_error": 1.1444091796875e-05,
+            "atol": 0.0001,
+            "rtol": 1e-05,
+            "compatible": true,
+            "exact_repeatability": true
+          },
+          "tail": {
+            "max_abs_error": 1.71661376953125e-05,
+            "atol": 0.0001,
+            "rtol": 1e-05,
+            "compatible": true,
+            "exact_repeatability": true
+          }
+        },
+        "note": "Tolerance compares devices; ties still use exact float32 equality."
+      }
+    }
+  },
+  "training_smoke": {
+    "name": "convkb_smoke",
+    "description": "Plumbing check only; not a scientific result.",
+    "completed_steps": 8,
+    "planned_steps": 8,
+    "training_complete": true,
+    "best_validation_step": 8,
+    "best_validation_metrics": {
+      "MRR_expected_random": 0.0021104803357656614,
+      "MRR_optimistic": 0.0021104803357656614,
+      "MRR_pessimistic": 0.0021104803357656614,
+      "target_tie_fraction": 0.0,
+      "queries": 16,
+      "Hits@1_expected_random": 0.0,
+      "Hits@3_expected_random": 0.0,
+      "Hits@10_expected_random": 0.0
+    },
+    "selection_split": "validation",
+    "selection_triples": 8,
+    "test_metrics_computed": false,
+    "seed": 42,
+    "elapsed_seconds": 0.7358343999949284,
+    "peak_process_rss_bytes_observed": 420380672,
+    "peak_gpu_allocated_bytes": null,
+    "peak_gpu_reserved_bytes": null,
+    "best_checkpoint_sha256": "76c092a6d7264a33c2a4b79fd7a4528aceebcfab2af4c44cc90cbdae916d9173",
+    "environment": {
+      "python": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "packages": {
+        "torch": "2.11.0+cpu",
+        "numpy": "2.3.3",
+        "psutil": "7.2.2"
+      },
+      "cuda_version": null,
+      "cuda_available": false,
+      "gpu": null
+    },
+    "note": "Eight plumbing updates in the preparation workspace; not scientific weights."
+  },
+  "smoke_export_sha256": "1d23fee0143a8f7bb9b0ff1201c85d31f6689ec36454a567dd036a0ca6ec0db4",
+  "validation_bundle": {
+    "sha256": "762cc07cedbdfefc98dc45184519961e260b577a682d50c61a1d5b7a8c6d88d2",
+    "bytes": 196001,
+    "verified_internal_files": 63,
+    "contains_weights": false
+  },
+  "actual_checkpoint_resume": "passed; per-query arrays and metrics match uninterrupted ConvKB pilot"
+}
