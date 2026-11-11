@@ -9,6 +9,7 @@ import hashlib
 import io
 import json
 import math
+import re
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path, PurePosixPath
@@ -201,7 +202,9 @@ def validate(bundle, repo, data):
                 close(row['MRR_opt_minus_expected'],gap,'Table gap')
                 for name,value in values.items():
                     close(row[name],value,'Table metric')
-        require('Ran 23 tests' in z.read('results/tests.log').decode() and '\nOK\n' in z.read('results/tests.log').decode(), 'Colab test log')
+        test_log = z.read('results/tests.log').decode()
+        test_count = re.search(r'^Ran (\d+) tests?\b', test_log, re.MULTILINE)
+        require(test_count is not None and int(test_count.group(1)) >= 23 and re.search(r'^OK\s*$', test_log, re.MULTILINE), 'Colab test log')
         report['passed'] = True
         files = {}
         for name in names:
