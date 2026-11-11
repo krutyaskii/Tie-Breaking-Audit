@@ -16,5 +16,12 @@
   "log_every": 100,
   "query_batch_size": 64,
   "candidate_chunk_size": 512,
-  "cpu_threads": 4
+  "cpu_threads": 4,
+  "conv_weight_init": "trunc_normal",
+  "conv_weight_std": 0.1,
+  "conv_weight_a": -0.2,
+  "conv_weight_b": 0.2,
+  "conv_bias_init": 0.1,
+  "score_weight_init": "normal",
+  "score_weight_std": 0.1
 }
