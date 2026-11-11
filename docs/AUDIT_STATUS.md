@@ -73,8 +73,12 @@ sidecar, excluding weights, dataset splits and raw score tensors.
 ## Colab and optional retraining
 
 Open `notebooks/Evaluation_Colab.ipynb`, select T4, upload both ZIPs and run
-the cells. It embeds source and supports Google Drive resume without a GitHub
-push. GPU execution remains to be validated on an actual GPU.
+the cells. It embeds source without needing a GitHub push. Google Drive is
+optional: the default saves locally on the Colab VM; download the final ZIP
+before the runtime is deleted. Set `USE_GOOGLE_DRIVE=True` for persistent
+resume. A failed mount explicitly falls back to local storage and cannot
+recover inaccessible Drive progress. GPU execution remains to be validated
+on an actual GPU.
 
 ```sh
 python -m convkb.train --config configs/convkb_smoke.json --output runs/convkb_training_smoke --device cpu

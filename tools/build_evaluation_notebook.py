@@ -36,13 +36,31 @@ cell('code', "import base64, io, os, zipfile\nfrom pathlib import Path\nPROJECT 
      f"with zipfile.ZipFile(io.BytesIO(base64.b64decode({encoded!r}))) as z:\n    z.extractall(PROJECT)\nos.chdir(PROJECT)\n")
 cell('code', "import subprocess, sys\nsubprocess.run([sys.executable, '-m', 'pip', 'install', '-r', 'requirements-evaluation.txt'], check=True)\n"
      "import torch\nassert torch.cuda.is_available(), 'Select a GPU runtime and reconnect.'\nprint(torch.__version__, torch.cuda.get_device_name(0))\n")
-cell('markdown', 'Mount Drive to preserve resumable counts across Colab disconnects. Keep the same '
-     'packages, GPU, source, batch and chunk sizes when resuming. Changed environments are rejected.\n')
-cell('code', "from google.colab import drive, files\ndrive.mount('/content/drive')\n"
-     "OUTPUT = Path('/content/drive/MyDrive/TieBreakingAudit/final_audit')\n"
-     "uploaded = files.upload()\nimport hashlib\n"
+cell('markdown', 'Google Drive is optional. The default saves results on the Colab VM; download '
+     'the final bundle before the runtime is deleted. Set USE_GOOGLE_DRIVE=True for persistent '
+     'storage. A failed mount falls back explicitly to a local run; it does not resume inaccessible '
+     'Drive results. Keep the same packages, GPU, source, batch and chunk sizes when resuming.\n')
+cell('code', "from pathlib import Path\nfrom google.colab import files\n"
+     "USE_GOOGLE_DRIVE = False\n"
+     "OUTPUT = Path('/content/TieBreakingAudit/final_audit')\n"
+     "if USE_GOOGLE_DRIVE:\n"
+     "    from google.colab import drive\n"
+     "    try:\n"
+     "        drive.mount('/content/drive')\n"
+     "        OUTPUT = Path('/content/drive/MyDrive/TieBreakingAudit/final_audit')\n"
+     "    except (ValueError, OSError, RuntimeError) as error:\n"
+     "        print(f'Drive mount failed: {error}')\n"
+     "        print('Using local storage; inaccessible Drive progress will not be resumed.')\n"
+     "OUTPUT.mkdir(parents=True, exist_ok=True)\n"
+     "print('Output:', OUTPUT)\n"
+     "if str(OUTPUT).startswith('/content/TieBreakingAudit/'):\n"
+     "    print('Local storage: download the final bundle before deleting the runtime.')\n")
+cell('code', "uploaded = files.upload()\nimport hashlib\n"
      "hash_to_path = {hashlib.sha256(data).hexdigest(): str(Path(name).resolve()) for name, data in uploaded.items()}\n"
-     "from audit_pipeline import ARCHIVES\nrotate_zip = hash_to_path[ARCHIVES['rotate']]\nconvkb_zip = hash_to_path[ARCHIVES['convkb']]\n")
+     "from audit_pipeline import ARCHIVES\n"
+     "missing = [model for model, checksum in ARCHIVES.items() if checksum not in hash_to_path]\n"
+     "if missing:\n    raise ValueError('Missing or incorrect ZIP packages: ' + ', '.join(missing))\n"
+     "rotate_zip = hash_to_path[ARCHIVES['rotate']]\nconvkb_zip = hash_to_path[ARCHIVES['convkb']]\n")
 cell('code', "command = [sys.executable, '-u', 'audit_pipeline.py', '--rotate-archive', rotate_zip,\n"
      "           '--convkb-archive', convkb_zip, '--out', str(OUTPUT), '--device', 'cuda', '--threads', '4']\n"
      "if (OUTPUT / 'rotate_pilot' / 'metadata.json').exists():\n    command.append('--resume')\n"
