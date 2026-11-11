@@ -14,6 +14,12 @@ of 0.286361 belongs to validation checkpoint selection.
 
 ## Completed run and evaluation status
 
+`audit.py` is a work-in-progress streaming evaluator, with reproducible
+aggregation from per-query counts. The existing ConvKB checkpoint is a legacy
+architecture variant and cannot establish a ConvKB replication; its
+correction and retraining are pending. No full test audit is yet reported.
+See [current audit instructions](docs/AUDIT_STATUS.md).
+
 - [RotatE experiment report](reports/ROTATE_REPORT.md) covers the data,
   implementation, completed run, measured validation results, and limitations.
 - [Verified run evidence](reports/rotate_colab_budget_run.json) preserves the

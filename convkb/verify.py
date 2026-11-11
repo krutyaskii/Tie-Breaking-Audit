@@ -20,6 +20,10 @@ def verify(checkpoint, data_dir, device, examples_out):
         raise ValueError("Unexpected score shape")
     if not np.all(np.isfinite(head_scores)) or not np.all(np.isfinite(tail_scores)):
         raise ValueError("Non-finite scores")
+    repeat_head = bool(np.array_equal(head_scores, adapter.score_candidates(triples, mode="head")))
+    repeat_tail = bool(np.array_equal(tail_scores, adapter.score_candidates(triples, mode="tail")))
+    if not repeat_head or not repeat_tail:
+        raise ValueError("Scores are not exactly repeatable")
     np.savez(examples_out, triples=triples, head_scores=head_scores, tail_scores=tail_scores)
     report = {
         "passed": True,
@@ -31,8 +35,8 @@ def verify(checkpoint, data_dir, device, examples_out):
         "score_dtype": "float32",
         "score_direction": "higher_is_better",
         "score_shape_per_mode": list(head_scores.shape),
-        "exact_repeatability": bool(np.array_equal(
-            head_scores, adapter.score_candidates(triples, mode="head"))),
+        "exact_repeatability": {"head": repeat_head, "tail": repeat_tail},
+        "architecture": "legacy_convkb_variant; not an upstream architecture check",
         "note": "ConvKB uses softplus(-pos) + softplus(neg) loss; larger scores mean more plausible triples.",
     }
     return report

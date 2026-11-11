@@ -7,15 +7,15 @@ dataset splits or final test metrics.
 
 ## Implementation note
 
-ConvKB is implemented in PyTorch, adapted from the public
-`daiquocnguyen/ConvKB` repository. The TensorFlow version distributed with the
-re-evaluation study is not used. This deviation from the proposal is
-documented in the project report.
+This checkpoint is a **legacy ConvKB variant**, not a faithful ConvKB
+implementation. Its convolution does not combine h/r/t at the same embedding
+coordinate. Corrected architecture and retraining are deferred. Do not present
+this checkpoint as a ConvKB replication.
 
-The model uses `Conv2d(1, num_filters, kernel_size=(1, 3))` over the
-concatenated `[h, r, t]`, followed by ReLU and a dot product with a shared
-weight vector. Training uses `softplus(-pos) + softplus(neg)` plus L2 on
-`score_weight` and `conv.weight`, matching the upstream ConvKB objective.
+The input is `[B,1,3,D]`; kernel `(1,3)` moves along D and processes h/r/t
+separately. The legacy training objective uses `softplus(-pos) +
+softplus(neg)` plus L2 on `score_weight` only. No claim of upstream objective
+equivalence is made.
 
 ## Score direction
 
@@ -70,9 +70,8 @@ for name, expected in reference.items():
     assert digest == expected, name
 print('All bundle checksums match')
 ```
-`adapter_checks.json` records checks against native upstream scoring for both
-prediction modes, exact score repeatability on the verification device,
-mapping hashes, and the score direction.
+The supplied `adapter_checks.json` checks shape, finite scores, mapping and
+head repeatability. It does not compare with an independent upstream scorer.
 
 ## Information to report
 
