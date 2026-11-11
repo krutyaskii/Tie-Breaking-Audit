@@ -2,15 +2,19 @@
 
 The evaluator supports RotatE, corrected ConvKB (`convkb_hrt_v1`) and explicit
 legacy diagnostics. Both corrected checkpoints are available. Local synthetic
-tests and CPU validation pilots are complete. A full two-model test run is
-still required; validation results are not test results.
+tests and CPU validation pilots are complete. The full T4 test audit is also
+complete: 40932 queries per model. Results and independent validation are in
+[reports/final_audit](../reports/final_audit/). Validation metrics remain
+separate from test metrics.
 
 ## Environment and input packages
 
 Tested: Python 3.13.15, torch 2.11.0+cpu, NumPy 2.3.3, matplotlib 3.10.7,
 psutil 7.2.2. `requirements-evaluation.txt` pins these package versions. The
 evidence bundle records the actual torch build, platform and numerical backend.
-The GPU notebook is prepared; its execution requires an actual GPU runtime.
+The completed GPU run used Python 3.13.16, torch 2.11.0+cu130, CUDA 13.0,
+Tesla T4 and the same NumPy/matplotlib/psutil pins. Runtime/build details and
+the original distribution-version lock are preserved with the results.
 
 Obtain the separately shared ZIPs (weights and datasets stay out of Git):
 
@@ -63,6 +67,27 @@ python audit.py table runs/final_audit/rotate runs/final_audit/convkb --out runs
 python audit_bundle.py runs/final_audit
 ```
 
+The committed full results can be recomputed without checkpoints or GPU:
+
+```sh
+python audit.py aggregate reports/final_audit/rotate
+python audit.py aggregate reports/final_audit/convkb
+python audit.py table reports/final_audit/rotate reports/final_audit/convkb --out reports/final_audit
+```
+
+An independent validator uses direct reciprocal sums rather than the
+evaluator's harmonic-number implementation. It also checks every retained
+candidate count against the actual benchmark truth union:
+
+```sh
+python tools/validate_evaluation_bundle.py /path/evaluation_validation_bundle.zip --out /path/validated_results
+```
+
+This requires the data reconstructed by `python prepare_data.py`, NumPy and
+matching run source. It never executes source files from the supplied ZIP.
+The original returned bundle SHA-256 is
+`88273c8dc37b838b9589cb3b6e43245535850d8125e47e121890477a8a481201`.
+
 Aggregation needs NumPy/matplotlib and does not import torch. It checks file
 and configuration hashes, canonical query order, target hashes, count bounds
 and policy bounds. Outputs include metrics, seed results, exact tie histograms,
@@ -77,8 +102,8 @@ the cells. It embeds source without needing a GitHub push. Google Drive is
 optional: the default saves locally on the Colab VM; download the final ZIP
 before the runtime is deleted. Set `USE_GOOGLE_DRIVE=True` for persistent
 resume. A failed mount explicitly falls back to local storage and cannot
-recover inaccessible Drive progress. GPU execution remains to be validated
-on an actual GPU.
+recover inaccessible Drive progress. The numerical GPU workflow completed on
+T4; the optional storage branches were also checked locally with mocked Drive.
 
 ```sh
 python -m convkb.train --config configs/convkb_smoke.json --output runs/convkb_training_smoke --device cpu

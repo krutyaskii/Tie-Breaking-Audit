@@ -2,15 +2,15 @@
 
 Course project E2: reproduce the evaluation issue described in
 [Sun et al., ACL 2020](https://aclanthology.org/2020.acl-main.489/).
-We will evaluate ConvKB and RotatE on FB15k-237 and measure how optimistic,
+We evaluate ConvKB and RotatE on FB15k-237 and measure how optimistic,
 pessimistic, and uniform random tie-breaking change ranking metrics at fixed
 model weights.
 
 The project includes shared data preparation and a RotatE training/scoring
 pipeline. The completed `rotate_colab_budget` run trained for 30,000 updates
-on a Colab Tesla T4. Its selected checkpoint is ready for the shared evaluator.
-The supplied handoff records **zero scored test queries**. The reported MRR
-of 0.286361 belongs to validation checkpoint selection.
+on a Colab Tesla T4. The original training handoffs record zero scored test
+queries; the shared full test audit is now complete and independently checked.
+RotatE's training report MRR of 0.286361 remains a validation selection metric.
 
 ## Completed run and evaluation status
 
@@ -19,23 +19,34 @@ and validation checks, then streams the full audit. `audit.py` recomputes
 all policies and five seeded estimates from saved per-query counts.
 See [run instructions](docs/AUDIT_STATUS.md) and the self-contained
 [evaluation notebook](notebooks/Evaluation_Colab.ipynb).
-Corrected ConvKB weights are available; full test results remain pending.
+The completed Colab T4 audit has **40,932 test queries per model**. Independent
+direct summation reproduces all policies, five seeds, histograms and tables;
+query targets and retained counts agree with the verified benchmark.
+
+| Model | Test MRR, expected random | Optimistic minus expected MRR | Queries with target ties |
+| --- | ---: | ---: | ---: |
+| RotatE | 0.282140868651 | 3.04409e-8 | 26 / 40,932 |
+| Corrected ConvKB | 0.151383763405 | 6.30169e-11 | 3 / 40,932 |
+
+Tie-breaking has negligible impact on these budget checkpoints. The large
+ConvKB effect reported in the paper is not reproduced by this experiment.
+See the [evaluation report](reports/EVALUATION_REPORT.md),
+[complete tables](reports/final_audit/main_table.md) and
+[independent validation](reports/final_audit/validation_report.json).
 
 - [RotatE experiment report](reports/ROTATE_REPORT.md) covers the data,
   implementation, completed run, measured validation results, and limitations.
 - [Verified run evidence](reports/rotate_colab_budget_run.json) preserves the
   supplied archive's metadata and validation history with integrity checks.
 - [Shared test evaluation protocol](docs/EVALUATION.md) defines the final
-  audit on 20,466 test triples, or 40,932 head/tail queries, and the remaining
-  deliverables for both model owners and the evaluator.
+  audit on 20,466 test triples, or 40,932 head/tail queries.
 - [Evaluator handoff guide](docs/ROTATE_HANDOFF.md) explains how to load the
   frozen checkpoint and score candidates with the original IDs.
 
-The evaluator produces test metrics, tie-group distributions, five random
-evaluation seeds and a ConvKB comparison from saved counts. Local checks
-have exercised validation pilots; a complete test audit remains to be run.
-The report documents the completed data and RotatE contribution. The final
-team report will incorporate those test results.
+Saved per-query counts reproduce every policy and seed without scoring models.
+The [result directory](reports/final_audit/) includes compact count arrays,
+metadata, tables, figures, test logs and environment locks. The final six-page
+team report and presentation remain separate deliverables.
 
 ## Obtain the trained checkpoint
 
@@ -118,6 +129,8 @@ data/FB15k-237/              # Generated locally; ignored by Git
 
 Dataset files, archives, checkpoints, and training runs stay out of Git.
 Commit the preparation code, instructions, and small provenance reports instead.
+Compact per-query B/T evidence in `reports/final_audit` is versioned; it contains
+no checkpoints, dataset split text or raw candidate-score matrices.
 Each teammate runs the same command to get the same data.
 
 Train on `train.txt`, select settings/checkpoints using `valid.txt`, and use

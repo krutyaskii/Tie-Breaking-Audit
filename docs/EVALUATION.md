@@ -4,9 +4,10 @@ This document translates the team proposal into the evaluator handoff
 contract. It specifies the final test audit for ConvKB and RotatE.
 The completed RotatE package contains validation selection results and
 zero scored test queries. This document supplies a protocol. The shared
-evaluator is implemented in `audit.py` and `audit_pipeline.py`. See
-[AUDIT_STATUS.md](AUDIT_STATUS.md) for commands, current checks, the corrected
-ConvKB checkpoint and the remaining full test run.
+evaluator is implemented in `audit.py` and `audit_pipeline.py`. The shared
+full test audit is complete and independently checked in
+[reports/final_audit](../reports/final_audit/). See
+[AUDIT_STATUS.md](AUDIT_STATUS.md) for reproduction commands.
 
 ## Split roles
 
@@ -216,6 +217,6 @@ The data/RotatE contribution supplies verified data reconstruction, frozen
 weights, a scorer, logs, and documentation. The shared evaluator supplies
 the complete final test run, random-seed cross-check, tie distributions,
 ConvKB comparison, and final reproduction command. The final report is
-updated from those artifacts after the audit is complete. Corrected ConvKB
-selects step 6000 on validation; the old step-30000 package is diagnostic.
-Validation pilots do not establish a complete test result.
+updated from the completed test artifacts in `reports/final_audit`. Corrected
+ConvKB selects step 6000 on validation; the old step-30000 package is diagnostic.
+The large published ConvKB tie effect was not observed for these budget weights.

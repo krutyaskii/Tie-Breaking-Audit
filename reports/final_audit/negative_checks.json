@@ -1,0 +1,12 @@
+{
+  "altered_metric": {
+    "passed": true,
+    "rejected_with": "rotate/overall/expected_random/MRR: 0.2831408686510963 != 0.2821408686510962",
+    "internal_hashes_repaired": true
+  },
+  "altered_retained_count": {
+    "passed": true,
+    "rejected_with": "Retained counts differ from benchmark filtering",
+    "internal_hashes_repaired": true
+  }
+}

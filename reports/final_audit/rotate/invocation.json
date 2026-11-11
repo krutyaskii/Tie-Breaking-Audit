@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "/content/tie_breaking_audit/audit.py",
+    "run",
+    "--model",
+    "rotate",
+    "--checkpoint",
+    "/content/drive/MyDrive/TieBreakingAudit/final_audit/packages/rotate/model.pt",
+    "--archive",
+    "/content/tie_breaking_audit/rotate_colab_budget_handoff_20261102_130712.zip",
+    "--data",
+    "/content/tie_breaking_audit/data/FB15k-237",
+    "--batch",
+    "8",
+    "--chunk",
+    "2048",
+    "--threads",
+    "4",
+    "--device",
+    "cuda",
+    "--split",
+    "test",
+    "--out",
+    "/content/drive/MyDrive/TieBreakingAudit/final_audit/rotate"
+  ],
+  "git_commit": "",
+  "git_dirty": [],
+  "started_utc": "2026-11-11T11:40:57.610534+00:00"
+}

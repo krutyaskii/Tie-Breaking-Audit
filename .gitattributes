@@ -3,3 +3,6 @@
 
 # Preserve the exact provenance bytes recorded in completed checkpoints.
 /vendor/kg_reeval/SOURCE.json -text
+
+# Preserve returned evidence bytes, including LF logs/JSON, across platforms.
+reports/final_audit/** -text

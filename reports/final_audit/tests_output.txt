@@ -1,0 +1,33 @@
+head: 3/3
+tail: 3/3
+head: 2/3
+head: 3/3
+tail: 3/3
+test_aggregation_and_order (test_audit.AuditTests.test_aggregation_and_order) ... ok
+test_bruteforce_scores (test_audit.AuditTests.test_bruteforce_scores) ... ok
+test_direct_oracle (test_audit.AuditTests.test_direct_oracle) ... ok
+test_exclusive_run_lock (test_audit.AuditTests.test_exclusive_run_lock) ... ok
+test_float32_equality_and_invalid (test_audit.AuditTests.test_float32_equality_and_invalid) ... ok
+test_hand_cases (test_audit.AuditTests.test_hand_cases) ... ok
+test_resume_matches_uninterrupted_and_rejects_changes (test_audit.AuditTests.test_resume_matches_uninterrupted_and_rejects_changes) ... ok
+test_seed_statistics_nonzero_ties (test_audit.AuditTests.test_seed_statistics_nonzero_ties) ... ok
+test_union_filtering_both_modes (test_audit.AuditTests.test_union_filtering_both_modes) ... ok
+test_candidate_ids_match_native_single_scores (test_convkb.ConvKBChecks.test_candidate_ids_match_native_single_scores) ... ok
+test_checkpoint_reload_and_mapping_mismatch (test_convkb.ConvKBChecks.test_checkpoint_reload_and_mapping_mismatch) ... ok
+test_independent_coordinate_formula (test_convkb.ConvKBChecks.test_independent_coordinate_formula) ... ok
+test_legacy_is_explicit (test_convkb.ConvKBChecks.test_legacy_is_explicit) ... ok
+test_training_objective_and_score_direction (test_convkb.ConvKBChecks.test_training_objective_and_score_direction) ... ok
+test_validation_metrics_with_fixed_scores (test_convkb.ConvKBChecks.test_validation_metrics_with_fixed_scores) ... ok
+test_verifier_fails_on_tail_nonrepeatability (test_convkb.ConvKBChecks.test_verifier_fails_on_tail_nonrepeatability) ... ok
+test_candidate_ids_match_native_single_scores_in_both_modes (test_rotate.RotatEChecks.test_candidate_ids_match_native_single_scores_in_both_modes) ... ok
+test_checkpoint_reload_and_mapping_mismatch (test_rotate.RotatEChecks.test_checkpoint_reload_and_mapping_mismatch) ... ok
+test_filtered_random_mrr_is_average_of_reciprocal_ranks (test_rotate.RotatEChecks.test_filtered_random_mrr_is_average_of_reciprocal_ranks) ... ok
+test_manual_distance_and_score_direction (test_rotate.RotatEChecks.test_manual_distance_and_score_direction) ... ok
+test_microbatch_update_matches_upstream_loss_and_optimizer (test_rotate.RotatEChecks.test_microbatch_update_matches_upstream_loss_and_optimizer) ... ok
+test_sampler_and_rng_resume_exactly (test_rotate.RotatEChecks.test_sampler_and_rng_resume_exactly) ... ok
+test_training_negatives_exclude_known_training_answers (test_rotate.RotatEChecks.test_training_negatives_exclude_known_training_answers) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 1.909s
+
+OK

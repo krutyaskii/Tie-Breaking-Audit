@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "checkpoint_sha256": "5ec0bbc39e9568f6362ac38010cc752531dfbdba7aaea029661838707ce8b622",
+  "architecture": "rotate_complex_v1",
+  "checks": {
+    "head": {
+      "max_abs_error": 0.0,
+      "atol": 0.0001,
+      "rtol": 1e-05,
+      "compatible": true,
+      "exact_repeatability": true
+    },
+    "tail": {
+      "max_abs_error": 0.0,
+      "atol": 0.0001,
+      "rtol": 1e-05,
+      "compatible": true,
+      "exact_repeatability": true
+    }
+  },
+  "note": "Tolerance compares devices; ties still use exact float32 equality."
+}

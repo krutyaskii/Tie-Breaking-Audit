@@ -2,7 +2,9 @@
 
 Prepared on 2026-11-04. Scope covers the completed data preparation and RotatE
 training contribution to course project E2. All measured ranking results in
-this report come from validation. Final test evaluation is pending.
+this report come from validation. The subsequent shared full test audit is
+documented in [EVALUATION_REPORT.md](EVALUATION_REPORT.md) and
+[final_audit/](final_audit/); the historical validation results below are preserved.
 
 ## Research question
 

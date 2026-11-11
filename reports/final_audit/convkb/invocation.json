@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "/content/tie_breaking_audit/audit.py",
+    "run",
+    "--model",
+    "convkb",
+    "--checkpoint",
+    "/content/drive/MyDrive/TieBreakingAudit/final_audit/packages/convkb/model.pt",
+    "--archive",
+    "/content/tie_breaking_audit/convkb_colab_budget_handoff_20261111_025759 (1).zip",
+    "--data",
+    "/content/tie_breaking_audit/data/FB15k-237",
+    "--batch",
+    "2",
+    "--chunk",
+    "512",
+    "--threads",
+    "4",
+    "--device",
+    "cuda",
+    "--split",
+    "test",
+    "--out",
+    "/content/drive/MyDrive/TieBreakingAudit/final_audit/convkb"
+  ],
+  "git_commit": "",
+  "git_dirty": [],
+  "started_utc": "2026-11-11T11:42:28.663724+00:00"
+}
