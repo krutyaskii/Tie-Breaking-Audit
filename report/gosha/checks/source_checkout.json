@@ -1,0 +1,10 @@
+{
+  "checked_on": "2026-11-25",
+  "clone_url": "https://github.com/krutyaskii/Tie-Breaking-Audit.git",
+  "numerical_base_commit": "c08d07b111d86706991d6819216b1a68cbcf5c06",
+  "initial_checkout_status": "clean; main synchronized with origin/main",
+  "changes_to_existing_files": [
+    "README.md"
+  ],
+  "note": "Only README navigation plus additive report/gosha materials; frozen results/evaluator/models are unchanged."
+}

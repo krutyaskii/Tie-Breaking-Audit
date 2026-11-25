@@ -1,0 +1,11 @@
+{
+  "tectonic_release": "tectonic@0.17.0",
+  "release_url": "https://github.com/tectonic-typesetting/tectonic/releases/tag/tectonic%400.17.0",
+  "asset_url": "https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.17.0/tectonic-0.17.0-x86_64-pc-windows-msvc.zip",
+  "asset_sha256": "f61ce51f0b0ade1015b7de7ef368541c5424e9756ecbd0d7af97d6d48030845f",
+  "asset_digest_verified": true,
+  "style_year": 2025,
+  "style_url": "https://media.neurips.cc/Conferences/NeurIPS2025/Styles.zip",
+  "style_zip_sha256": "72032130232955b785cd622b7c52d893e3166f30a90e1e6279d0a28e8373beef",
+  "style_sha256": "67a960f35da6fecb5a0ce0202fa400459f4c8bb6c294f1a3fdd82fbbd39244c2"
+}

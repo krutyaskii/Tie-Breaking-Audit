@@ -1,0 +1,11 @@
+{
+  "report/gosha/generate.py": "a2fb78e7177004054792edb9217b653e1375340a55df2d3e774fa9bfcbbc0897",
+  "report/gosha/paper_reference.json": "78eb7f2dd1352b5cbbfd67e06b4b32b0e67ce2c65fb4adfc1c61451a6548b89c",
+  "reports/final_audit/ARTIFACT_SHA256SUMS.json": "f2a8c157973d138eeedc630b915bb165d7f3f686c2a44218b504737598e11f91",
+  "reports/final_audit/rotate/per_query.npz": "1ce1f192d37a9eefd3d13fa67feb55bead55db6a257b1b1060c167ad5f5a4d59",
+  "reports/final_audit/rotate/metadata.json": "2e2a97ac3357a746bab32566daafbdae46eb1ea9b0622d7fa15f09f5917f457e",
+  "reports/final_audit/rotate/metrics.json": "0044c0d3b0f2bad3bea34d19534e17d9a09df1d8a16324fed6d5c3e1d8ee66e5",
+  "reports/final_audit/convkb/per_query.npz": "ea5e523832142c960ae277eae17d7cff07e44875cfa9742797ab0391bd3e3520",
+  "reports/final_audit/convkb/metadata.json": "08259065820e9491591ab6420532af6bb001447c03f1d9317a7207ee00814931",
+  "reports/final_audit/convkb/metrics.json": "6491531e60d2539ba8436e5c47c776fafeb51edc4e9721a4ab813958fdb0b042"
+}

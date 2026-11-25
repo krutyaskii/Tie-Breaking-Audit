@@ -1,0 +1,2 @@
+# Only needed for rendering/inspecting an already compiled preview PDF.
+PyMuPDF==1.26.6

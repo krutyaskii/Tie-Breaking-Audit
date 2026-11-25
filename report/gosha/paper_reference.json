@@ -1,0 +1,14 @@
+{
+  "title": "A Re-evaluation of Knowledge Graph Completion Methods",
+  "url": "https://aclanthology.org/2020.acl-main.489.pdf",
+  "table": 2,
+  "pdf_page": 4,
+  "verified_on": "2026-11-25",
+  "random_definition": "Mean of five random evaluation runs (Section 5.4)",
+  "models": {
+    "rotate": {"optimistic_MRR": 0.336, "random_MRR": 0.336, "pessimistic_MRR": 0.336,
+      "gap": null, "gap_note": "Unrounded gap is unresolved: all displayed MRRs round to 0.336."},
+    "convkb": {"optimistic_MRR": 0.407, "random_MRR": 0.243, "pessimistic_MRR": 0.130,
+      "gap": 0.164, "gap_note": "Difference of the displayed TOP and RANDOM MRRs."}
+  }
+}

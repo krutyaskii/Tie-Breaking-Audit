@@ -1,0 +1,20 @@
+[
+  {
+    "file": "preview.pdf",
+    "pages": 2,
+    "unresolved_markers": false,
+    "overfull_boxes": [],
+    "text_outside_margin_tolerance": [],
+    "hyperlinks": 12,
+    "passed": true
+  },
+  {
+    "file": "preview_neurips.pdf",
+    "pages": 3,
+    "unresolved_markers": false,
+    "overfull_boxes": [],
+    "text_outside_margin_tolerance": [],
+    "hyperlinks": 11,
+    "passed": true
+  }
+]

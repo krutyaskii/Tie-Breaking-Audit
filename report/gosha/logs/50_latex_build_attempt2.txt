@@ -1,0 +1,32 @@
+note: Running TeX ...
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: evaluation_results.tex:46: Underfull \hbox (badness 1436) in paragraph at lines 38--46
+warning: evaluation_results.tex:46: Underfull \hbox (badness 1122) in paragraph at lines 38--46
+warning: evaluation_results.tex:86: Underfull \hbox (badness 1189) in paragraph at lines 80--86
+warning: evaluation_results.tex:86: Underfull \hbox (badness 1466) in paragraph at lines 80--86
+warning: evaluation_results.tex:98: Underfull \hbox (badness 2181) in paragraph at lines 87--98
+warning: evaluation_results.tex:107: Underfull \hbox (badness 3930) in paragraph at lines 101--107
+warning: evaluation_results.tex:107: Underfull \hbox (badness 10000) in paragraph at lines 101--107
+warning: preview.bbl:1: Underfull \hbox (badness 5475) in paragraph at lines 108--1
+warning: preview.bbl:1: Underfull \hbox (badness 1221) in paragraph at lines 108--1
+warning: preview.bbl:18: Underfull \hbox (badness 5563) in paragraph at lines 10--18
+note: Running BibTeX on preview.aux ...
+note: Rerunning TeX because bibtex was run ...
+warning: evaluation_results.tex:46: Underfull \hbox (badness 1436) in paragraph at lines 38--46
+warning: evaluation_results.tex:46: Underfull \hbox (badness 1122) in paragraph at lines 38--46
+warning: evaluation_results.tex:86: Underfull \hbox (badness 1189) in paragraph at lines 80--86
+warning: evaluation_results.tex:86: Underfull \hbox (badness 1466) in paragraph at lines 80--86
+warning: evaluation_results.tex:98: Underfull \hbox (badness 2181) in paragraph at lines 87--98
+warning: evaluation_results.tex:107: Underfull \hbox (badness 3930) in paragraph at lines 101--107
+warning: evaluation_results.tex:107: Underfull \hbox (badness 10000) in paragraph at lines 101--107
+warning: preview.bbl:1: Underfull \hbox (badness 5475) in paragraph at lines 108--1
+warning: preview.bbl:1: Underfull \hbox (badness 1221) in paragraph at lines 108--1
+warning: preview.bbl:18: Underfull \hbox (badness 5563) in paragraph at lines 10--18
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `preview.out` (536 B)
+note: Writing `preview.blg` (197 B)
+note: Writing `preview.bbl` (1.138671875 KiB)
+note: Writing `preview.log` (15.1416015625 KiB)
+note: Writing `preview.pdf` (66.4267578125 KiB)
+note: Writing `preview.aux` (3.2529296875 KiB)

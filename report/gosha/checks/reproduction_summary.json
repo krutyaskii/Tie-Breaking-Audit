@@ -1,0 +1,75 @@
+{
+  "counts_reconstruction": "PASS",
+  "benchmark_aware_validation": "PASS",
+  "fresh_CPU_checkpoint_validation": "PASS",
+  "fresh_full_GPU_scoring": "BLOCKED: CUDA unavailable",
+  "public_weight_endpoint": "UNVERIFIED; model packages supplied separately",
+  "unit_tests": 24,
+  "primary_preview_pages": 2,
+  "report_environment": {
+    "python": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.3.3",
+      "matplotlib": "3.10.7",
+      "PyMuPDF": "1.26.6"
+    },
+    "torch_installed": false
+  },
+  "evaluation_environment": {
+    "python": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch_runtime": "2.11.0+cpu",
+    "cuda_available": false,
+    "packages": {
+      "numpy": "2.3.3",
+      "torch": "2.11.0+cpu",
+      "matplotlib": "3.10.7",
+      "psutil": "7.2.2"
+    }
+  },
+  "numerical_validation": {
+    "passed": true,
+    "queries_per_model": 40932,
+    "verified_artifact_files": 32,
+    "independent_method": "Direct reciprocal summation; fresh default_rng draws; sample std ddof=1",
+    "max_abs_direct_metric_difference": 5.551115123125783e-17,
+    "torch_installed": false,
+    "numpy": "2.3.3",
+    "python": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "scope": "No model scoring. Actual target/filter-vs-dataset validation is a separate recorded check.",
+    "source_manifest_sha256": "f2a8c157973d138eeedc630b915bb165d7f3f686c2a44218b504737598e11f91"
+  },
+  "artifact_consistency": {
+    "passed": true,
+    "unchanged_evidence_files": 32,
+    "identical_generated_numeric_and_tex_files": 10,
+    "same_environment_figure_byte_equality": {
+      "figures/gap_comparison.pdf": true,
+      "figures/gap_comparison.png": true,
+      "figures/target_ties.pdf": true,
+      "figures/target_ties.png": true
+    }
+  },
+  "pdf_validation": [
+    {
+      "file": "preview.pdf",
+      "pages": 2,
+      "unresolved_markers": false,
+      "overfull_boxes": [],
+      "text_outside_margin_tolerance": [],
+      "hyperlinks": 12,
+      "passed": true
+    },
+    {
+      "file": "preview_neurips.pdf",
+      "pages": 3,
+      "unresolved_markers": false,
+      "overfull_boxes": [],
+      "text_outside_margin_tolerance": [],
+      "hyperlinks": 11,
+      "passed": true
+    }
+  ]
+}

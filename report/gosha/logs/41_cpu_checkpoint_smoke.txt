@@ -1,0 +1,7 @@
+head: 8/8
+tail: 8/8
+Elapsed: 3.56s; complete=True
+head: 8/8
+tail: 8/8
+Elapsed: 7.92s; complete=True
+C:\Users\Я\PycharmProjects\Computer_Vision-project\artifacts\gosha_report_20261125\clean_repo\runs\evaluation_validation_bundle.zip

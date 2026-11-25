@@ -1,0 +1,12 @@
+{
+  "python": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "torch_runtime": "2.11.0+cpu",
+  "cuda_available": false,
+  "packages": {
+    "numpy": "2.3.3",
+    "torch": "2.11.0+cpu",
+    "matplotlib": "3.10.7",
+    "psutil": "7.2.2"
+  }
+}

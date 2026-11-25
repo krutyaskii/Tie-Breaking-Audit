@@ -1,0 +1,5 @@
+Data preparation failed: <urlopen error [WinError 10013] Сделана попытка доступа к сокету методом, запрещенным правами доступа>
+If the download failed, download https://raw.githubusercontent.com/svjan5/kg-reeval/999b75e8a3ffa81973ea33bb22de17511b136bd1/data_compressed/FB15k-237.zip
+in your browser, save it as C:\Users\Я\PycharmProjects\Computer_Vision-project\artifacts\gosha_report_20261125\clean_repo\raw\FB15k-237.zip, and run this script again.
+If an existing file differs, inspect the change before replacing it.
+See docs/DATA.md for setup and troubleshooting.

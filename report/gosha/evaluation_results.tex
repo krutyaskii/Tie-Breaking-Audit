@@ -1,0 +1,113 @@
+% Insertable contribution: no documentclass, preamble, or bibliography command.
+% Requires amsmath, amssymb, booktabs, graphicx, and natbib.
+% Set \goshaRoot to this directory relative to the main compilation directory.
+\providecommand{\goshaRoot}{report/gosha}
+\input{\goshaRoot/numbers.tex}
+\input{\goshaRoot/tables/main_results.tex}
+\input{\goshaRoot/tables/tie_seed_summary.tex}
+
+\section{Evaluation Protocol}
+\label{sec:gosha-protocol}
+We audit two frozen FB15k-237 checkpoints without test-based selection.
+Each test fact produces head $(?,r,t)$ and tail $(h,r,?)$ queries against
+all 14,541 entity IDs: $N=40{,}932$ queries, 20,466 per mode. Canonical order
+is test-file order, all head queries then all tail queries. We exclude
+other known true answers from
+$\mathcal{D}_{\mathrm{train}}\cup\mathcal{D}_{\mathrm{valid}}
+\cup\mathcal{D}_{\mathrm{test}}$, while always retaining the target.
+Using test facts for benchmark filtering does not permit training on them.
+
+Let $K_q$ be retained candidates and $y_q$ the target. Higher raw scores are
+better. We use finite, unrounded float32 scores without AMP/TF32 and read
+$s_q(y_q)$ from the \emph{same candidate row}, not a separate forward pass:
+\begin{align}
+ B_q&=\sum_{e\in K_q}\mathbf{1}[s_q(e)>s_q(y_q)],\\
+ T_q&=\sum_{e\in K_q}\mathbf{1}[s_q(e)=s_q(y_q)].
+\end{align}
+Equality is exact, without tolerance or rounding; $T_q$ includes the target.
+A target tie has $T_q>1$. Optimistic and pessimistic ranks are
+$r_q^{\mathrm{O}}=B_q+1$ and $r_q^{\mathrm{P}}=B_q+T_q$.
+For a uniform position inside the target's tie group,
+\begin{align}
+ \mathbb{E}[\mathrm{RR}_q]&=\frac{1}{T_q}
+       \sum_{j=1}^{T_q}\frac{1}{B_q+j},\label{eq:gosha-rr}\\
+ \mathbb{E}[\mathrm{H@}k_q]&=
+       \frac{\min(\max(k-B_q,0),T_q)}{T_q}.
+\end{align}
+The expectation in Eq.~\ref{eq:gosha-rr} averages reciprocals; it is not
+$1/\mathbb{E}[r_q]$. For a deterministic rank policy,
+$\mathrm{MRR}=N^{-1}\sum_q1/r_q$ and
+$\mathrm{H@}k=N^{-1}\sum_q\mathbf{1}[r_q\leq k]$, for $k\in\{1,3,10\}$.
+Expected-random metrics average the corresponding expectations.
+Our primary effect is
+$\Delta=\mathrm{MRR}_{\mathrm{O}}-\mathbb{E}[\mathrm{MRR}_{\mathrm{random}}]$.
+
+Each candidate row is computed once; saved $B_q,T_q$ serve all policies.
+For each evaluation seed $a\in\{0,1,2,3,4\}$, we separately draw
+$r_q^{(a)}=B_q+U_q^{(a)}$, with $U_q^{(a)}$ uniform on
+$\{1,\ldots,T_q\}$, using a fresh NumPy \texttt{default\_rng(a)} in canonical
+query order. We report all five values, their mean and sample standard
+deviation ($\mathrm{ddof}=1$). These draws vary evaluation at fixed weights,
+not training; they do not estimate training uncertainty.
+
+\section{Results}
+\label{sec:gosha-results}
+Table~\ref{tab:gosha-main} gives expected-random MRR of
+\GoshaRotateMRR{} for RotatE and \GoshaConvKBMRR{} for corrected ConvKB.
+The nonzero gaps are \GoshaRotateGap{} and \GoshaConvKBGap{} MRR units.
+All three policies give identical Hits@1/3/10. Only
+\GoshaRotateTies{} and \GoshaConvKBTies{} queries have target ties;
+every non-singleton target group has $T_q=2$.
+Figure~\ref{fig:gosha-ties} displays these rare events directly, rather than
+hiding them beside a dominant no-tie bar. Table~\ref{tab:gosha-ties}
+summarizes the five draws; their means need not equal analytic expectation
+exactly. Head/tail results, exact histograms and all seeds are provided
+separately as machine-readable tables.
+
+\begin{figure}[t]
+ \centering
+ \ifdim\linewidth>3.2in
+  \includegraphics[width=3.2in]{\goshaRoot/figures/target_ties.pdf}
+ \else
+  \includegraphics[width=\linewidth]{\goshaRoot/figures/target_ties.pdf}
+ \fi
+ \caption{Queries with exact target ties after filtering. Each denominator is
+ 40,932 queries; the vertical axis is a linear percentage scale.}
+ \label{fig:gosha-ties}
+\end{figure}
+
+\section{Reproducibility}
+\label{sec:gosha-repro}
+The full scoring run used a Tesla T4, Python 3.13.16, PyTorch
+2.11.0+cu130 and NumPy 2.3.3. Query batch/candidate chunk sizes were
+8/2048 for RotatE and 2/512 for ConvKB. Metadata records numerical backend
+settings, checkpoint/archive/data/source hashes and the ordered query IDs.
+Code and results are versioned in the repository
+\citep{audit-repository}.
+
+We distinguish \emph{reconstructing saved results} from \emph{scoring models
+again}. The former passed in a fresh clone and an isolated environment
+without PyTorch/GPU. Independent direct reciprocal sums check every policy
+and draw against JSON/CSV/Markdown. Benchmark-aware checks verify target IDs
+and retained counts against restored splits. In a second isolated environment,
+tests and validation-only CPU scoring of both checkpoints passed. A new full
+GPU rerun remains blocked locally by unavailable CUDA. Frozen packages are
+distributed separately; no public weight download has been verified.
+Commands, locks, exit codes and logs accompany this contribution.
+
+\section{Interpretation and Limitations}
+\label{sec:gosha-discussion}
+\citet{sun-etal-2020-evaluation}, Table~2, report ConvKB
+TOP/RANDOM/BOTTOM MRR of 0.407/0.243/0.130, giving a displayed TOP--RANDOM
+gap of 0.164. Their RANDOM is a mean over five runs, whereas our primary
+RANDOM is analytic; we retain the five draws separately. Their RotatE values
+all round to 0.336; its unrounded gap remains unresolved.
+
+On our selected budget checkpoints, tie-breaking has negligible impact;
+the paper's large ConvKB effect is not reproduced. This does not refute the
+paper: training recipes, implementation, validation selection and numerical
+environments differ, without causal ablations. ConvKB has corrected h/r/t
+mixing but does not reproduce every upstream training choice. One checkpoint
+per model cannot quantify training variability. Float32 ties may change
+across devices or batching. Precision, weights, seeds and hyperparameters
+were not tuned to these results.

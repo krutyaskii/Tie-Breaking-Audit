@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\caption{Full filtered test audit (40,932 queries per model). O/E/P denote optimistic, analytic expected random, and pessimistic ranking. MRR is rounded to nine decimals; $\Delta$ is computed before rounding and remains nonzero. Hits are expected random.}
+\label{tab:gosha-main}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrr@{}}
+\toprule
+Model & MRR O & MRR E & MRR P & $\Delta$ & H@1 & H@3 & H@10 \\
+\midrule
+RotatE & 0.282140899 & 0.282140869 & 0.282140838 & $3.04\times10^{-8}$ & 0.1975 & 0.3122 & 0.4508 \\
+ConvKB & 0.151383763 & 0.151383763 & 0.151383763 & $6.30\times10^{-11}$ & 0.0757 & 0.1584 & 0.3125 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

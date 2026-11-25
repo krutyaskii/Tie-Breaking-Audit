@@ -1,0 +1,8 @@
+READY: C:\Users\Я\PycharmProjects\Computer_Vision-project\artifacts\gosha_report_20261125\clean_repo\data\FB15k-237
+Entities: 14541; relations: 237
+train: 272115 triples, 0 duplicate rows
+valid: 17535 triples, 0 duplicate rows
+test: 20466 triples, 0 duplicate rows
+Exact triple overlaps: {'train_valid': 0, 'train_test': 0, 'valid_test': 0}
+Validation/test coverage relative to train: {'valid': {'entities_absent_from_train': 8, 'relations_absent_from_train': 0}, 'test': {'entities_absent_from_train': 29, 'relations_absent_from_train': 0}}
+Manifest: C:\Users\Я\PycharmProjects\Computer_Vision-project\artifacts\gosha_report_20261125\clean_repo\reports\data_manifest.json

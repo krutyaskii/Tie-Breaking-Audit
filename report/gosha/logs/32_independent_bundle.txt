@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "source_bundle_sha256": "88273c8dc37b838b9589cb3b6e43245535850d8125e47e121890477a8a481201",
+  "source_bundle_bytes": 714848,
+  "sidecar_verified": true,
+  "verification": "Independent direct sums; no model scoring or ZIP source execution",
+  "models": {
+    "rotate": {
+      "passed": true,
+      "queries": 40932,
+      "head_queries": 20466,
+      "tail_queries": 20466,
+      "target_tie_count": 26,
+      "target_tie_fraction": 0.0006351998436431155,
+      "max_T": 2,
+      "overall": {
+        "optimistic": {
+          "MRR": 0.2821408990920402,
+          "Hits@1": 0.1975471513730089,
+          "Hits@3": 0.3122495846770253,
+          "Hits@10": 0.4508208736440926
+        },
+        "pessimistic": {
+          "MRR": 0.28214083821015223,
+          "Hits@1": 0.1975471513730089,
+          "Hits@3": 0.3122495846770253,
+          "Hits@10": 0.4508208736440926
+        },
+        "expected_random": {
+          "MRR": 0.2821408686510963,
+          "Hits@1": 0.1975471513730089,
+          "Hits@3": 0.3122495846770253,
+          "Hits@10": 0.4508208736440926
+        },
+        "gap": 3.0440943932230624e-08
+      },
+      "elapsed_seconds": 85.147132,
+      "device": "cuda",
+      "gpu": "Tesla T4",
+      "checkpoint_sha256": "5ec0bbc39e9568f6362ac38010cc752531dfbdba7aaea029661838707ce8b622",
+      "selected_step": 30000,
+      "checks": [
+        "canonical query IDs",
+        "targets against test",
+        "retained counts against truth union",
+        "direct reciprocal sums",
+        "head/tail/overall policies",
+        "five seeds and ddof=1",
+        "exact histogram and quantiles",
+        "checkpoint/data/source/state hashes"
+      ]
+    },
+    "convkb": {
+      "passed": true,
+      "queries": 40932,
+      "head_queries": 20466,
+      "tail_queries": 20466,
+      "target_tie_count": 3,
+      "target_tie_fraction": 7.32922896511287e-05,
+      "max_T": 2,
+      "overall": {
+        "optimistic": {
+          "MRR": 0.15138376346806637,
+          "Hits@1": 0.07566207368318187,
+          "Hits@3": 0.15840906869930615,
+          "Hits@10": 0.3125183230724128
+        },
+        "pessimistic": {
+          "MRR": 0.15138376334203255,
+          "Hits@1": 0.07566207368318187,
+          "Hits@3": 0.15840906869930615,
+          "Hits@10": 0.3125183230724128
+        },
+        "expected_random": {
+          "MRR": 0.15138376340504944,
+          "Hits@1": 0.07566207368318187,
+          "Hits@3": 0.15840906869930615,
+          "Hits@10": 0.3125183230724128
+        },
+        "gap": 6.301692501153866e-11
+      },
+      "elapsed_seconds": 1263.775129,
+      "device": "cuda",
+      "gpu": "Tesla T4",
+      "checkpoint_sha256": "dfa921d625ae229320106a6321844991a385ca4f9a3cb87117eb29e212cbfe46",
+      "selected_step": 6000,
+      "checks": [
+        "canonical query IDs",
+        "targets against test",
+        "retained counts against truth union",
+        "direct reciprocal sums",
+        "head/tail/overall policies",
+        "five seeds and ddof=1",
+        "exact histogram and quantiles",
+        "checkpoint/data/source/state hashes"
+      ]
+    }
+  },
+  "verified_internal_files": 74,
+  "source_files_matching_repository_after_newline_normalization": 28
+}

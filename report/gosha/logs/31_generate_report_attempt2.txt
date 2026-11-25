@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "queries_per_model": 40932,
+  "verified_artifact_files": 32,
+  "independent_method": "Direct reciprocal summation; fresh default_rng draws; sample std ddof=1",
+  "max_abs_direct_metric_difference": 5.551115123125783e-17,
+  "torch_installed": false,
+  "numpy": "2.3.3",
+  "python": "3.13.15 (main, Sep 29 2026, 15:00:04) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "scope": "No model scoring. Actual target/filter-vs-dataset validation is a separate recorded check.",
+  "source_manifest_sha256": "f2a8c157973d138eeedc630b915bb165d7f3f686c2a44218b504737598e11f91"
+}

@@ -48,6 +48,13 @@ The [result directory](reports/final_audit/) includes compact count arrays,
 metadata, tables, figures, test logs and environment locks. The final six-page
 team report and presentation remain separate deliverables.
 
+Gosha's [evaluation contribution](report/gosha/HANDOFF.md) contains insertable
+English LaTeX, a [two-page preview](report/gosha/preview.pdf), generated
+tables/figures and fresh isolated-environment checks. See its
+[reproduction instructions](report/gosha/REPRODUCE.md) and
+[validation record](report/gosha/VALIDATION.md); a new full GPU scoring run
+was not part of those CPU checks.
+
 ## Obtain the trained checkpoint
 
 The trained evaluator package is shared separately by the RotatE owner.

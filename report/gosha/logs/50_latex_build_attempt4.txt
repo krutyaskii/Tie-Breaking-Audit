@@ -1,0 +1,38 @@
+note: Running TeX ...
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: evaluation_results.tex:44: Underfull \hbox (badness 1436) in paragraph at lines 36--44
+warning: evaluation_results.tex:44: Underfull \hbox (badness 1122) in paragraph at lines 36--44
+warning: evaluation_results.tex:52: Underfull \hbox (badness 1281) in paragraph at lines 45--52
+warning: evaluation_results.tex:66: Underfull \hbox (badness 6910) in paragraph at lines 55--66
+warning: evaluation_results.tex:66: Underfull \hbox (badness 1383) in paragraph at lines 55--66
+warning: evaluation_results.tex:87: Underfull \hbox (badness 1189) in paragraph at lines 81--87
+warning: evaluation_results.tex:87: Underfull \hbox (badness 1466) in paragraph at lines 81--87
+warning: evaluation_results.tex:97: Underfull \hbox (badness 2181) in paragraph at lines 88--97
+warning: evaluation_results.tex:105: Underfull \hbox (badness 3930) in paragraph at lines 100--105
+warning: evaluation_results.tex:105: Underfull \hbox (badness 10000) in paragraph at lines 100--105
+warning: preview.bbl:1: Underfull \hbox (badness 5475) in paragraph at lines 106--1
+warning: preview.bbl:18: Underfull \hbox (badness 5563) in paragraph at lines 10--18
+warning: preview.bbl:26: Underfull \hbox (badness 1303) in paragraph at lines 20--26
+note: Running BibTeX on preview.aux ...
+note: Rerunning TeX because bibtex was run ...
+warning: evaluation_results.tex:44: Underfull \hbox (badness 1436) in paragraph at lines 36--44
+warning: evaluation_results.tex:44: Underfull \hbox (badness 1122) in paragraph at lines 36--44
+warning: evaluation_results.tex:52: Underfull \hbox (badness 1281) in paragraph at lines 45--52
+warning: evaluation_results.tex:66: Underfull \hbox (badness 6910) in paragraph at lines 55--66
+warning: evaluation_results.tex:66: Underfull \hbox (badness 1383) in paragraph at lines 55--66
+warning: evaluation_results.tex:87: Underfull \hbox (badness 1189) in paragraph at lines 81--87
+warning: evaluation_results.tex:87: Underfull \hbox (badness 1466) in paragraph at lines 81--87
+warning: evaluation_results.tex:97: Underfull \hbox (badness 2181) in paragraph at lines 88--97
+warning: evaluation_results.tex:105: Underfull \hbox (badness 3930) in paragraph at lines 100--105
+warning: evaluation_results.tex:105: Underfull \hbox (badness 10000) in paragraph at lines 100--105
+warning: preview.bbl:1: Underfull \hbox (badness 5475) in paragraph at lines 106--1
+warning: preview.bbl:18: Underfull \hbox (badness 5563) in paragraph at lines 10--18
+warning: preview.bbl:26: Underfull \hbox (badness 1303) in paragraph at lines 20--26
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `preview.aux` (3.2529296875 KiB)
+note: Writing `preview.bbl` (1.16015625 KiB)
+note: Writing `preview.pdf` (65.7421875 KiB)
+note: Writing `preview.out` (536 B)
+note: Writing `preview.log` (15.630859375 KiB)
+note: Writing `preview.blg` (197 B)

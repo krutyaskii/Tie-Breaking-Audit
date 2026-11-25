@@ -1,0 +1,25 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\caption{Head/tail breakdown, 20,466 queries per mode. O/E/P as in the main table.}
+\label{tab:gosha-head-tail}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllrrrr@{}}
+\toprule
+Model & Mode & Policy & MRR & H@1 & H@3 & H@10 \\
+\midrule
+RotatE & Head & O & 0.190381828 & 0.117170 & 0.207661 & 0.338757 \\
+RotatE & Head & E & 0.190381779 & 0.117170 & 0.207661 & 0.338757 \\
+RotatE & Head & P & 0.190381730 & 0.117170 & 0.207661 & 0.338757 \\
+RotatE & Tail & O & 0.373899970 & 0.277924 & 0.416838 & 0.562885 \\
+RotatE & Tail & E & 0.373899958 & 0.277924 & 0.416838 & 0.562885 \\
+RotatE & Tail & P & 0.373899947 & 0.277924 & 0.416838 & 0.562885 \\
+ConvKB & Head & O & 0.111094764 & 0.051207 & 0.112186 & 0.231848 \\
+ConvKB & Head & E & 0.111094764 & 0.051207 & 0.112186 & 0.231848 \\
+ConvKB & Head & P & 0.111094764 & 0.051207 & 0.112186 & 0.231848 \\
+ConvKB & Tail & O & 0.191672763 & 0.100117 & 0.204632 & 0.393189 \\
+ConvKB & Tail & E & 0.191672763 & 0.100117 & 0.204632 & 0.393189 \\
+ConvKB & Tail & P & 0.191672763 & 0.100117 & 0.204632 & 0.393189 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

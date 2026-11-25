@@ -1,0 +1,3 @@
+model,optimistic_MRR,random_MRR,pessimistic_MRR,gap,gap_note
+rotate,0.336,0.336,0.336,,Unrounded gap is unresolved: all displayed MRRs round to 0.336.
+convkb,0.407,0.243,0.13,0.164,Difference of the displayed TOP and RANDOM MRRs.

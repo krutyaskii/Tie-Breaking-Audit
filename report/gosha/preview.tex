@@ -1,0 +1,27 @@
+\documentclass[10pt]{article}
+\usepackage[preprint]{neurips_2025}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,booktabs,graphicx}
+\usepackage{hyperref}
+\usepackage{xurl}
+\hypersetup{colorlinks=true,citecolor=blue,urlcolor=blue,linkcolor=blue}
+\urlstyle{same}
+\newcommand{\goshaRoot}{.}
+\setlength{\columnsep}{0.22in}
+\begin{document}
+\ifdefined\goshaSingleColumn
+ {\centering\large\bfseries Tie-Breaking Audit: Evaluation Contribution\par}
+ {\centering\small Gosha --- single-column NeurIPS-style integration preview\par}
+ \vspace{0.8em}
+\else
+ \twocolumn[{
+  \centering\large\bfseries Tie-Breaking Audit: Evaluation Contribution\par
+  \small\normalfont Gosha --- two-column integration preview\par
+  \vspace{0.8em}
+ }]
+\fi
+\raggedbottom
+\input{evaluation_results.tex}
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

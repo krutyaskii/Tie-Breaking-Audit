@@ -1,0 +1,18 @@
+{
+  "rotate": {
+    "archive_sha256": "2c66eecac4fe499f8c3d695cb107d1c6025cda6758c875ea0461ba59421a0d1b",
+    "checkpoint_sha256": "5ec0bbc39e9568f6362ac38010cc752531dfbdba7aaea029661838707ce8b622",
+    "verified_internal_files": 33,
+    "selected_step": 30000,
+    "validation_MRR": 0.2863605777207394,
+    "validation_records": 11
+  },
+  "convkb": {
+    "archive_sha256": "9008666f453d8306531b6cbf884cbd79b22d380198ba5124a205e47745065a5b",
+    "checkpoint_sha256": "dfa921d625ae229320106a6321844991a385ca4f9a3cb87117eb29e212cbfe46",
+    "verified_internal_files": 40,
+    "selected_step": 6000,
+    "validation_MRR": 0.15885317359985426,
+    "validation_records": 11
+  }
+}

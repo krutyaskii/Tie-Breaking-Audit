@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\caption{Exact target ties and five evaluation draws (seeds 0--4). Mean $\pm$ sample standard deviation uses $\mathrm{ddof}=1$ and describes tie-position randomness, not training uncertainty.}
+\label{tab:gosha-ties}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrr@{}}
+\toprule
+Model & Tied queries & Fraction & Seeded MRR mean $\pm$ SD \\
+\midrule
+RotatE & 26 / 40,932 & 0.063520\% & $0.282140880\pm 2.36\times10^{-8}$ \\
+ConvKB & 3 / 40,932 & 0.007329\% & $0.151383763\pm 6.59\times10^{-11}$ \\
+\bottomrule
+\end{tabular*}
+\end{table*}
