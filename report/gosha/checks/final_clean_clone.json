@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "candidate_commit": "4445d1db61f499a76c660cf71d6d018cc7e8ff62",
+  "clone_type": "new local Git clone of candidate commit after initial fresh GitHub clone",
+  "initial_and_final_workingtree_clean": true,
+  "no_dataset_raw_archives_or_runs_before_generation": true,
+  "torch_installed": false,
+  "artifact_check": {
+    "passed": true,
+    "unchanged_evidence_files": 32,
+    "identical_generated_numeric_and_tex_files": 10,
+    "same_environment_figure_byte_equality": {
+      "figures/gap_comparison.pdf": true,
+      "figures/gap_comparison.png": true,
+      "figures/target_ties.pdf": true,
+      "figures/target_ties.png": true
+    }
+  }
+}

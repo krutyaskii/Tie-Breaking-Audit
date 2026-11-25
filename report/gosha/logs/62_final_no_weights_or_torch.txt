@@ -1,0 +1,6 @@
+{
+  "torch_installed": false,
+  "data_present": false,
+  "raw_present": false,
+  "runs_present_before_generation": false
+}

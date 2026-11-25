@@ -39,6 +39,19 @@ Logs: `31_generate_report*.txt`, `33_copy_saved_results.txt`,
 `34_aggregate_*.txt`, `35_combined_table.txt`,
 `36_regenerate_to_separate_directory.txt`.
 
+After the report files were committed in candidate revision `4445d1d`, a
+second, completely clean local Git clone of that commit was checked. It had
+no prepared dataset, raw archive, run directory or PyTorch installation. The
+documented requirements file and `generate.py --out runs/gosha_materials`
+commands succeeded. All ten generated numeric/LaTeX files and all four figure
+files matched the committed versions byte-for-byte in this environment;
+all 32 frozen evidence hashes remained unchanged. The verification checkout
+was clean both before and after generation. See
+`checks/final_clean_clone.json` and `logs/60_*` through `logs/65_*`.
+Later commits add this verification record only, without changing numerical
+code or generated materials. Generated text files explicitly use LF endings
+so checkout normalization does not break repeatability across these clones.
+
 ## Benchmark-aware verification — PASS
 
 The fresh clone initially had no prepared dataset. `prepare_data.py` downloaded
